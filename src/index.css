@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Keyframes for Fade In and Out (for image only) */
+@keyframes fadeInOutImage {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Keyframes for Text Sliding and Fading */
+@keyframes slideInOutText {
+  0% {
+    opacity: 0;
+    transform: translateY(50px); /* Slide in from below */
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px); /* Slide out upwards */
+  }
+}
+
+/* Apply the fadeInOutImage animation to the image */
+.image-animate {
+  animation: fadeInOutImage 4.2s ease-in-out infinite;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  max-width: 450px;
+  max-height: 450px;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Apply the slideInOutText animation to the text */
+.text-animate,
+.title-animate,
+.subtitle-animate,
+.description-animate,
+.button-animate {
+  animation: slideInOutText 4.2s ease-in-out infinite;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* Add delay to each element */
+.title-animate {
+  animation-delay: 0s; /* No delay for title */
+}
+
+.subtitle-animate {
+  animation-delay: 0.1s; /* Add a 0.5s delay for subtitle */
+}
+
+.description-animate {
+  animation-delay: 0.2s; /* Add a 1s delay for description */
+}
+
+.button-animate {
+  animation-delay: 0.3s; /* Add a 1.5s delay for button */
+}
+
+@keyframes rotateImage {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-rotate {
+  animation: rotateImage 20s linear infinite;
+}
+
+.slider-with-gap .slick-slide {
+  padding: 0 15px; /* Adds padding to each slide */
+}
+
+.slick-list {
+  margin: 0 -15px; /* Compensates for the padding inside the slide */
+}
+.slick-dots {
+  display: flex !important;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.slick-dots li {
+  margin: 0 5px;
+}
+
+.custom-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ff6600;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slick-dots .slick-active .custom-dot {
+  background-color: #fff; /* Active dot color */
+}
+
+@media (max-width: 375px) { /* For small devices like iPhone SE */
+  .your-container-class {
+    padding: 1rem; /* Reduce padding */
+    font-size: 0.875rem; /* Smaller text */
+  }
+}
+
+
+
+
+
+
+
+
+
