@@ -417,7 +417,7 @@ export default function HomeHeroSection() {
               <img
                 src={fx2}
                 alt="Second Image"
-                className="w-full max-w-sm h-auto object-cover sm:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl"
+                className="w-full max-w-sm md:max-w-md h-auto object-cover"
               />
             </motion.div>
 
@@ -428,21 +428,21 @@ export default function HomeHeroSection() {
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-5 text-orange-500 font-mono font-semibold">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-5 text-orange-500 font-mono font-semibold">
                 FRESH & TASTY FOOD
               </h2>
-              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white font-semibold mb-5">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-semibold mb-5">
                 A Sophisticated and <br className="hidden md:block" />{" "}
                 Traditional Cuisine
               </h1>
-              <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mb-5 text-white leading-relaxed">
+              <h3 className="text-sm sm:text-base md:text-lg lg:text-xl mb-5 text-white leading-relaxed">
                 Rosoi is one of the most popular Restaurants with a unique{" "}
-                <br className="hidden md:block" />
-                & special menu made by our passionate chefs with love and{" "}
+                <br className="hidden md:block" />& special menu made by our
+                passionate chefs with love and{" "}
                 <br className="hidden md:block" />
                 quality that can impress you.
               </h3>
-              <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white">
+              <h3 className="text-sm sm:text-base md:text-lg lg:text-xl text-white">
                 Call for Reservation
                 <span className="text-orange-500 underline ml-2">
                   +234 905 576 5770
