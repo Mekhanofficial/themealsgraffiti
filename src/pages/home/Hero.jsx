@@ -19,14 +19,10 @@ import fx13 from "../../pictures/fx13.jpg";
 import fx14 from "../../pictures/fx14.jpg";
 import fx15 from "../../pictures/fx15.png";
 import fx16 from "../../pictures/fx16.jpg";
-import fx17 from "../../pictures/fx17.png";
-import fx18 from "../../pictures/fx18.png";
 import fx19 from "../../pictures/fx19.jpg";
 import fx20 from "../../pictures/fx20.jpg";
 import fx21 from "../../pictures/fx21.jpg";
 import fx22 from "../../pictures/fx22.jpg";
-import fx24 from "../../pictures/fx24.jpg";
-import fx27 from "../../pictures/fx29.jpg";
 import quote from "../../pictures/quote.png";
 import gbg2 from "../../pictures/gbg2.jpg";
 import bg from "../../pictures/bg.jpg";
@@ -96,175 +92,285 @@ export default function HomeHeroSection() {
 
   const [selectedMenu, setSelectedMenu] = useState("breakfast");
 
-  const menuItems = {
-    breakfast: [
-      {
-        name: "Pancakes",
-        price: "$10.50",
-        description: "Fluffy pancakes with maple syrup",
-        extra: "RECOMMENDED",
-        dash: "-----------------------",
-      },
-      {
-        name: "Eggs Benedict",
-        price: "$12.00",
-        description: "Poached eggs, hollandaise sauce, and English muffin",
-        dash: "-------------------------------------------------",
-      },
-      {
-        name: "French Toast",
-        price: "$9.99",
-        description: "With cinnamon, powdered sugar, and maple syrup",
-        dash: "----------------------------------------------------",
-      },
-      {
-        name: "Avocado Toast",
-        price: "$12.99",
-        description: "Avocado, eggs, and sourdough",
-        dash: "------------------------------------------------",
-      },
-      {
-        name: "Eggs Florentine",
-        price: "$11.50",
-        description: "Poached eggs with spinach, hollandaise sauce",
-        extra: "SEASONAL",
-        dash: "----------------------",
-      },
-      {
-        name: "Scrambled Eggs with Bacon",
-        price: "$8.99",
-        description: "Scrambled eggs with crispy bacon",
-        dash: "-----------------------------",
-      },
-      {
-        name: "Breakfast Burrito",
-        price: "$10.99",
-        description: "Eggs, bacon, cheese, and salsa wrapped in a tortilla",
-        extra: "CHEF CHOICE",
-        dash: "------------------",
-      },
-    ],
-    brunch: [
-      {
-        name: "Avocado Toast",
-        price: "$12.99",
-        description: "Avocado, eggs, and sourdough",
-        extra: "RECOMMENDED",
-        dash: "----------------",
-      },
-      {
-        name: "Pancakes",
-        price: "$10.50",
-        description: "With maple syrup and butter",
-        dash: "---------------------------------------------------------",
-      },
-      {
-        name: "Omelette",
-        price: "$14.00",
-        description: "With spinach, cheese, and mushrooms",
-        dash: "--------------------------------------------------------",
-      },
-      {
-        name: "Eggs and Bacon",
-        price: "$9.99",
-        description: "Two eggs cooked to your liking with crispy bacon",
-        dash: "-----------------------------------------------",
-      },
-      {
-        name: "Shakshuka",
-        price: "$13.50",
-        description: "Poached eggs in a spicy tomato sauce with peppers",
-        extra: "CHEF CHOICE",
-        dash: "-------------------------",
-      },
-      {
-        name: "Bagel with Cream Cheese",
-        price: "$5.99",
-        description: "Toasted bagel with cream cheese spread",
-        dash: "---------------------------------",
-      },
-    ],
-    lunch: [
-      {
-        name: "Grilled Salmon",
-        price: "$20.85",
-        description: "Soft and juicy, with garlic & ginger",
-        extra: "RECOMMENDED",
-        dash: "---------------",
-      },
-      {
-        name: "Summer Salad",
-        price: "$15.99",
-        description: "Crisp greens, seasonal vegetables",
-        dash: "-------------------------------------------------",
-      },
-      {
-        name: "Grilled Chicken Sandwich",
-        price: "$18.50",
-        description: "Grilled chicken, lettuce, tomato, mayo",
-        dash: "---------------------------------",
-      },
-      {
-        name: "Veggie Burger",
-        price: "$14.99",
-        description: "Grilled veggie patty with lettuce and tomato",
-        dash: "-------------------------------------------------",
-      },
-      {
-        name: "Chicken Caesar Wrap",
-        price: "$17.00",
-        description: "Grilled chicken, romaine, parmesan, and Caesar dressing",
-        dash: "--------------------------------------",
-      },
-      {
-        name: "Beef Tacos",
-        price: "$13.99",
-        description:
-          "Ground beef, lettuce, cheese, and salsa in soft tortillas",
-        dash: "-----------------------------------------------------",
-      },
-    ],
-    dinner: [
-      {
-        name: "BBQ Ribs",
-        price: "$27.85",
-        description: "Chicken ribs, garlic & ginger, green sauce",
-        extra: "RECOMMENDED",
-        dash: "----------------",
-      },
-      {
-        name: "Crispy Skin Chicken",
-        price: "$22.85",
-        description: "Ricotta, radicchio, prosciutto salad, cabernet",
-        dash: "----------------------------------",
-      },
-      {
-        name: "Pan Fried Barramundi",
-        price: "$24.99",
-        description: "Soft and juicy, with garlic & ginger",
-        dash: "-------------------------------",
-      },
-      {
-        name: "Lobster Tail",
-        price: "$35.99",
-        description: "Grilled lobster tail with butter and lemon",
-        dash: "----------------------------------------------",
-      },
-      {
-        name: "Steak Frites",
-        price: "$28.50",
-        description: "Grilled steak with crispy fries",
-        dash: "----------------------------------------------",
-      },
-      {
-        name: "Pasta Primavera",
-        price: "$18.75",
-        description: "Pasta with seasonal vegetables in a light cream sauce",
-        extra: "CHEF CHOICE",
-        dash: "-----------",
-      },
-    ],
-  };
+const menuItems = {
+  breakfast: [
+    {
+      name: "Banana Bread",
+      extra: "RECOMMENDED",
+      price: "$8.99",
+      description:
+        "Freshly baked banana bread, soft and delicious with a hint of sweetness.",
+    },
+    {
+      name: "Banana Bread Medium",
+      price: "$10.50",
+      description:
+        "A larger portion of our signature banana bread, perfect for sharing.",
+    },
+    {
+      name: "Jam Doughnuts",
+      price: "$4.99",
+      description:
+        "Soft, fluffy doughnuts filled with sweet fruit jam, perfect for a quick snack.",
+    },
+    {
+      name: "Chocolate x Vanilla Cookies",
+      price: "$6.50",
+      description:
+        "A decadent mix of chocolate and vanilla cookies, chewy and rich in flavor.",
+    },
+    {
+      name: "Chicken Sandwich",
+      price: "$9.99",
+      description:
+        "A crispy chicken fillet served with fresh lettuce, tomato, and mayo in a soft bun.",
+    },
+    {
+      name: "Long Bun Chicken Sandwich",
+      price: "$12.00",
+      description:
+        "A juicy, crispy chicken fillet served in a long, soft bun with all the toppings.",
+    },
+    {
+      name: "Party Jollof Rice",
+      price: "$15.99",
+      description:
+        "A hearty serving of flavorful Jollof rice, perfect for sharing at parties.",
+    },
+    {
+      name: "Plain Fried Rice",
+      extra: "CHEF CHOICE",
+      price: "$14.99",
+      description:
+        "A simple yet delicious fried rice made with fresh vegetables and seasoned to perfection.",
+    },
+    {
+      name: "Plantain",
+      price: "$6.50",
+      description:
+        "Golden fried plantain slices, crispy on the outside and tender on the inside.",
+    },
+    {
+      name: "Stewed Beef",
+      price: "$9.99",
+      description:
+        "Tender beef stewed in a rich, flavorful sauce, served hot and juicy.",
+    },
+    {
+      name: "Peppered Chicken",
+      price: "$11.50",
+      description:
+        "Spicy grilled chicken seasoned with peppers and herbs, served with a kick.",
+    },
+    {
+      name: "Peppered Beef",
+      price: "$10.50",
+      description:
+        "Tender beef cooked in a spicy pepper sauce, packed with flavor.",
+    },
+    {
+      name: "Burgers",
+      price: "$11.50",
+      description:
+        "Juicy beef burger served with lettuce, tomato, and a special sauce.",
+    },
+  ],
+  brunch: [
+    {
+      name: "Meat Pie",
+      price: "$5.99",
+      description:
+        "Flaky pastry filled with a savory mix of seasoned meat and vegetables.",
+    },
+    {
+      name: "Chicken Pie",
+      price: "$6.50",
+      description:
+        "Flaky pastry filled with tender chicken and a rich, creamy filling.",
+    },
+    {
+      name: "Chicken Sandwich",
+      price: "$9.99",
+      description:
+        "A crispy chicken sandwich served with lettuce, tomato, and mayo.",
+    },
+    {
+      name: "Long Bun Chicken Sandwich",
+      extra: "RECOMMENDED",
+      price: "$12.00",
+      description:
+        "A juicy chicken fillet served in a long bun, with fresh toppings and a savory sauce.",
+    },
+  ],
+  lunch: [
+    {
+      name: "Party Jollof Rice",
+      price: "$15.99",
+      description:
+        "A rich and flavorful Jollof rice, cooked to perfection and perfect for lunch gatherings.",
+    },
+    {
+      name: "Pineapple Shrimps Fried Rice",
+      extra: "RECOMMENDED",
+      price: "$18.50",
+      description:
+        "A delightful mix of shrimps, fried rice, and tangy pineapple chunks.",
+    },
+    {
+      name: "Jambalaya Rice",
+      price: "$17.00",
+      description:
+        "A spiced rice dish with a mix of chicken, sausage, and shrimp, all cooked together.",
+    },
+    {
+      name: "Plain Fried Rice",
+      price: "$14.99",
+      description:
+        "Delicious fried rice made with fresh ingredients, lightly seasoned for a satisfying meal.",
+    },
+    {
+      name: "Suya Rice",
+      price: "$16.99",
+      description:
+        "Fragrant rice served with spiced beef, grilled to perfection.",
+    },
+    {
+      name: "Special Shrimps Fried Rice",
+      extra: "SEASONAL",
+      price: "$19.50",
+      description:
+        "Shrimps fried rice, a seasonal favorite with an extra dose of flavor.",
+    },
+    {
+      name: "Asun Coconut Rice",
+      price: "$18.75",
+      description:
+        "A fusion of coconut rice served with tender grilled beef, perfect for a tropical touch.",
+    },
+    {
+      name: "White Rice x Stew",
+      price: "$13.99",
+      description:
+        "Simple and classic white rice served with a rich, flavorful stew.",
+    },
+    {
+      name: "Coleslaw",
+      price: "$5.99",
+      description:
+        "A refreshing side of creamy coleslaw, perfect to balance any meal.",
+    },
+    {
+      name: "Chinese Rice",
+      extra: "CHEF CHOICE",
+      price: "$15.50",
+      description:
+        "A chef's special Chinese-style fried rice, packed with vegetables and seasoning.",
+    },
+    {
+      name: "Plantain",
+      price: "$6.50",
+      description:
+        "Fried golden plantains, crispy on the outside and soft on the inside.",
+    },
+    {
+      name: "Moi Moi",
+      price: "$7.99",
+      description:
+        "Steamed bean cake with a rich, spicy flavor, perfect as a side or main.",
+    },
+  ],
+  dinner: [
+    {
+      name: "Grilled Chicken",
+      extra: "RECOMMENDED",
+      price: "$10.99",
+      description:
+        "Juicy grilled chicken with a smoky flavor, served with your choice of sides.",
+    },
+    {
+      name: "Grilled Chicken Medium",
+      price: "$12.50",
+      description:
+        "A larger portion of grilled chicken, perfectly seasoned and cooked to perfection.",
+    },
+    {
+      name: "Grilled Turkey",
+      price: "$14.99",
+      description:
+        "Grilled turkey with a crispy skin and juicy meat, served hot.",
+    },
+    {
+      name: "Peppered Chicken",
+      price: "$11.50",
+      description:
+        "Spicy grilled chicken, seasoned with pepper and herbs for a bold flavor.",
+    },
+    {
+      name: "Peppered Turkey",
+      price: "$13.50",
+      description:
+        "Tender turkey grilled with pepper and seasoning, served hot.",
+    },
+    {
+      name: "Crispy Chicken",
+      price: "$12.75",
+      description:
+        "Crispy fried chicken, golden brown on the outside, juicy on the inside.",
+    },
+    {
+      name: "Peppered Beef",
+      price: "$10.50",
+      description:
+        "Beef chunks cooked in a spicy pepper sauce, perfect for spice lovers.",
+    },
+    {
+      name: "Peppered Snail",
+      extra: "SEASONAL",
+      price: "$15.99",
+      description:
+        "Tender snails cooked in a rich, spicy pepper sauce, a delicacy served seasonally.",
+    },
+    {
+      name: "Peppered Fried Cracker Fish",
+      price: "$14.50",
+      description:
+        "Crispy fried fish served with a spicy pepper sauce, perfect for seafood lovers.",
+    },
+    {
+      name: "Peppered Fried Hake Fish",
+      price: "$13.99",
+      description:
+        "Fried hake fish seasoned with spicy pepper sauce, served crispy and hot.",
+    },
+    {
+      name: "Assorted Meat",
+      price: "$16.00",
+      description:
+        "A mix of grilled meats including chicken, beef, and turkey, all seasoned to perfection.",
+    },
+    {
+      name: "Stewed Titus",
+      price: "$12.99",
+      description:
+        "A classic stew made with tender Titus fish, cooked in a rich, flavorful sauce.",
+    },
+    {
+      name: "Stewed Beef",
+      extra: "CHEF CHOICE",
+      price: "$9.99",
+      description:
+        "Beef stewed in a delicious sauce, chosen by the chef for its balance of flavors.",
+    },
+    {
+      name: "Burgers",
+      price: "$11.50",
+      description:
+        "Juicy beef burger with lettuce, tomato, and a special sauce, served with fries.",
+    },
+  ],
+};
+
+
 
   // Select the appropriate image based on the selected menu
   const getMenuImage = () => {
@@ -362,24 +468,16 @@ export default function HomeHeroSection() {
           <div className="relative h-screen">
             {/* Background Image */}
             <img
-              className="absolute  inset-0 w-full h-full object-cover z-[-2]"
+              className="absolute inset-0 w-full h-full object-cover z-[-2]"
               src={gbg2}
               alt="Background image showcasing a restaurant or food ambiance"
             />
 
-            <div className="flex flex-col md:flex-row-reverse justify-between mx-5 md:mx-20 text-white relative h-full">
-              {/* Image Section */}
-              <div className="absolute inset-0 md:relative flex items-center justify-center md:w-1/2">
-                <img
-                  className="relative top-24 md:top- object-contain transition-opacity duration-500 ease-in-out opacity-100 image-animate"
-                  src={slides[currentIndex].imageSrc}
-                  alt="A delicious meal prepared by passionate chefs"
-                />
-              </div>
-
-              {/* Content Section */}
-              <div className="flex items-center md:w-1/2 relative z-10">
-                <div className="flex flex-col justify-center space-y-5 relative top-52 md:top-0">
+            {/* Container for Image and Text */}
+            <div className="flex flex-col md:flex-row items-center justify-between mx-5 md:mx-20 text-white relative h-full">
+              {/* Content Section (Left Side) */}
+              <div className="w-full md:w-1/2 flex items-center justify-center md:justify-start">
+                <div className="flex flex-col justify-center space-y-5 text-center md:text-left">
                   <h1 className="text-orange-500 text-4xl md:text-5xl font-mono transition-transform duration-500 ease-in-out translate-y-0 title-animate">
                     {slides[currentIndex].title}
                   </h1>
@@ -394,67 +492,81 @@ export default function HomeHeroSection() {
                   </button>
                 </div>
               </div>
+
+              {/* Image Section (Right Side) */}
+              <div className="w-full md:w-1/2 flex items-center justify-center md:justify-end">
+                <img
+                  className="w-full max-w-md md:max-w-lg lg:max-w-xl object-contain transition-opacity duration-500 ease-in-out opacity-100 image-animate"
+                  src={slides[currentIndex].imageSrc}
+                  alt="A delicious meal prepared by passionate chefs"
+                />
+              </div>
             </div>
           </div>
 
           <div
-            className="relative px-5 sm:px-10 md:px-20 flex flex-col sm:flex-row items-center sm:items-start gap-10"
+            className="relative px-5 sm:px-8 md:px-16 lg:px-20 flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12"
             style={{
               backgroundImage: `url(${fx5})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
-              height: "100vh",
+              backgroundRepeat: "no-repeat",
+              minHeight: "100vh", // Keeps height consistent
+              maxHeight: "100vh", // Prevents background from becoming too long
               color: "white",
+              display: "flex",
+              alignItems: "center", // Centers content vertically
             }}
           >
+            {/* Image Section (Left Side) */}
             <motion.div
-              className="w-full relative top-10 md:top-20 sm:w-1/2 flex justify-center"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 1 }}
+              className="w-full md:w-1/2 flex justify-center md:justify-start"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
               <img
                 src={fx2}
-                alt="Second Image"
-                className="w-full max-w-sm md:max-w-md h-auto object-cover"
+                alt="Restaurant Interior"
+                className="w-full max-w-sm md:max-w-md lg:max-w-lg h-auto object-cover rounded-lg shadow-lg"
               />
             </motion.div>
 
+            {/* Text Section (Right Side) */}
             <motion.div
-              className="w-full sm:w-1/2 text-center sm:text-left relative top-10 md:top-20"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              className="w-full md:w-1/2 text-center md:text-left"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-5 text-orange-500 font-mono font-semibold">
+              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-4 text-orange-500 font-mono font-semibold">
                 FRESH & TASTY FOOD
               </h2>
-              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-semibold mb-5">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white font-semibold mb-4">
                 A Sophisticated and <br className="hidden md:block" />{" "}
                 Traditional Cuisine
               </h1>
-              <h3 className="text-sm sm:text-base md:text-lg lg:text-xl mb-5 text-white leading-relaxed">
+              <h3 className="text-sm sm:text-base md:text-lg lg:text-xl mb-4 text-gray-300 leading-relaxed">
                 Rosoi is one of the most popular Restaurants with a unique{" "}
                 <br className="hidden md:block" />& special menu made by our
                 passionate chefs with love and{" "}
                 <br className="hidden md:block" />
                 quality that can impress you.
               </h3>
-              <h3 className="text-sm sm:text-base md:text-lg lg:text-xl text-white">
+              <h3 className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300">
                 Call for Reservation
                 <span className="text-orange-500 underline ml-2">
-                  +234 905 576 5770
+                  +01234 567 891
                 </span>
               </h3>
-              <button className="border-2 border-gray-500 font-semibold mt-5 md:mt-10 p-2 md:p-3 w-full sm:w-auto sm:px-6 hover:bg-orange-500 hover:text-white transition duration-300 ease-in-out">
+              <button className="border-2 border-gray-500 font-semibold mt-4 md:mt-8 p-2 md:p-3 w-full md:w-auto md:px-6 hover:bg-orange-500 hover:text-white transition duration-300 ease-in-out">
                 View Full Menu
               </button>
             </motion.div>
           </div>
         </div>
-
         <motion.div
           className="relative w-full"
           style={{
@@ -642,11 +754,11 @@ export default function HomeHeroSection() {
                       ease: "linear",
                     }}
                   >
-                    <img
+                    {/* <img
                       className="mt-6 sm:mt-8 lg:mt-0 max-w-full h-auto object-contain"
                       src={fx15}
                       alt="Rotating Image"
-                    />
+                    /> */}
                   </motion.div>
                 </div>
 
