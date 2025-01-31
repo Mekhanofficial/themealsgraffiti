@@ -43,12 +43,14 @@ export default function FooterPage() {
             viewport={{ once: true }}
           >
             <div className="flex items-center gap-2">
-              <img className="w-14 h-14 " src={logoskin} alt="Logo" />
-              <h1 className="text-2xl -ml-2 font-semibold">
-                <span className="text-purple-600">Meal</span>
-                <span className="text-orange-400">sGraff</span>
-                <span className="text-yellow-400">iti</span>
-              </h1>
+              <Link to="/" className="flex items-center">
+                <img className="w-14 h-14" src={logoskin} alt="Logo" />
+                <h1 className="text-2xl -ml-2 font-semibold">
+                  <span className="text-purple-600">Meal</span>
+                  <span className="text-orange-400">sGraff</span>
+                  <span className="text-yellow-400">iti</span>
+                </h1>
+              </Link>
             </div>
             <p className="text-gray-200 text-sm lg:text-base font-semibold">
               The Mealsgraffiti is one of the most popular restaurants, offering
@@ -224,12 +226,18 @@ export default function FooterPage() {
                   infoadmin@examplesite.com
                 </a>
               </li> */}
-              <li>
+              <li className="flex flex-col">
                 <a
                   href="tel:+2349160002471"
                   className="text-gray-200 hover:text-orange-500"
                 >
                   +2349160002471
+                </a>
+                <a
+                  href="tel:+2349160002471"
+                  className="text-gray-200 hover:text-orange-500"
+                >
+                  +2349160002472
                 </a>
               </li>
             </ul>

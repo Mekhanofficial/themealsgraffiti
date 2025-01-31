@@ -120,10 +120,15 @@ export default function ContactPage() {
                   <h4 className="text-orange-700 font-semibold">
                     Visit our Restaurant
                   </h4>
-                  <p>
-                    2 Aro Ologolo Rd, Lekki Penninsula II,<br /> Lagos 106104, Lagos,
+                  <a
+                    href="https://www.google.com/maps?q=2+Aro+Ologolo+Rd,+Lekki+Peninsula+II,+Lagos+106104,+Nigeria"
+                    className="text-gray-200 hover:text-orange-500"
+                    target="_blank" // This makes the link open in a new tab
+                    rel="noopener noreferrer" // Security best practice when using target="_blank"
+                  >
+                    2 Aro Ologolo Rd, Lekki Peninsula II,<br /> Lagos 106104, Lagos,
                     Nigeria
-                  </p>
+                  </a>
                 </div>
                 <div>
                   <h4 className="text-orange-700 font-semibold">Call us</h4>

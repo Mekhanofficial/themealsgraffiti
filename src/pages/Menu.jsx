@@ -1,6 +1,6 @@
 import plainfried from "../pictures/plainfried.jpg";
 import pineshrimprice from "../pictures/pineshrimprice.jpg";
-import jambalayarice from "../pictures/jambalayarice.jpg";
+// import jambalayarice from "../pictures/jambalayarice.jpg";
 import jollof from "../pictures/jollof.jpg";
 import shrimpfriedrice from "../pictures/shrimpfriedrice.jpg";
 import coconutrice from "../pictures/coconutrice.jpeg";
@@ -90,6 +90,12 @@ export default function MenuPage() {
         image: grilledchicken,
       },
       {
+        name: "Special Shrimps Fried Rice",
+        price: "#2000",
+        description: "Deluxe fried rice with jumbo shrimp",
+        image: shrimpfriedrice,
+      },
+      {
         name: "Grilled Chicken Medium",
         price: "#3500",
         description: "Medium-sized grilled chicken",
@@ -101,7 +107,12 @@ export default function MenuPage() {
         description: "Spicy peppered chicken",
         image: pepperedchic,
       },
-
+      {
+        name: "Chinese Rice",
+        price: "#1500",
+        description: "Authentic Chinese-style fried rice",
+        image: chineserice,
+      },
       {
         name: "Crispy Chicken",
         price: "#3000",
@@ -220,7 +231,7 @@ export default function MenuPage() {
         name: "Jambalaya Rice",
         price: "#2200",
         description: "Spicy Creole rice with seafood and sausage",
-        image: jambalayarice,
+        // image: jambalayarice,
       },
       {
         name: "Grilled Turkey",
@@ -241,23 +252,12 @@ export default function MenuPage() {
         // image: suyarice,
       },
       {
-        name: "Special Shrimps Fried Rice",
-        price: "#2000",
-        description: "Deluxe fried rice with jumbo shrimp",
-        image: shrimpfriedrice,
-      },
-      {
         name: "Asun Coconut Rice",
         price: "#1700",
         description: "Coconut rice with spicy goat meat (asun)",
         image: coconutrice,
       },
-      {
-        name: "Chinese Rice",
-        price: "#1500",
-        description: "Authentic Chinese-style fried rice",
-        image: chineserice,
-      },
+
       {
         name: "Assorted Meat",
         price: "#1500",
@@ -438,7 +438,7 @@ export default function MenuPage() {
         price: "#2200",
         description:
           "A spiced rice dish with a mix of chicken, sausage, and shrimp, all cooked together.",
-        image: jambalayarice,
+        // image: jambalayarice,
       },
       {
         name: "Plain Fried Rice",
