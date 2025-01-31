@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; // Make sure Link is imported
 import gbg2 from "../pictures/headbg.jpg";
+import logoskin from "../pictures/logoskin.png";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -89,15 +90,22 @@ export default function HeaderPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
         >
-          {/* Logo Section */}
+          {/* Logo Section with Link */}
           <motion.div
-            className="flex items-center gap-1"
+            className="flex items-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
           >
-            <FontAwesomeIcon className="h-5 text-orange-500" icon={faSpoon} />
-            <h1 className="text-2xl">Meals Graffiti</h1>
+            {/* Wrap the logo and text with a Link to make it clickable */}
+            <Link to="/" className="flex items-center">
+              <img className="w-14 h-14" src={logoskin} alt="Logo" />
+              <h1 className="text-2xl -ml-2 font-semibold">
+                <span className="text-purple-600">Meal</span>
+                <span className="text-orange-400">sGraff</span>
+                <span className="text-yellow-400">iti</span>
+              </h1>
+            </Link>
           </motion.div>
 
           {/* Navigation Menu */}
@@ -141,7 +149,7 @@ export default function HeaderPage() {
                       <Link to="/blog">Blog</Link>
                     </li>
                     <li className="px-4 py-2 hover:bg-zinc-700">
-                      <Link to="/chef">Chef</Link>
+                      <Link to="/">Chef</Link>
                     </li>
                   </motion.ul>
                 )}
@@ -184,11 +192,19 @@ export default function HeaderPage() {
           transition={{ duration: 1, delay: 1.2 }}
         >
           <div className="flex items-center gap-1 mb-6 text-center">
-            <FontAwesomeIcon
-              className="h-5 font-bold text-orange-500"
-              icon={faSpoon}
-            />
-            <h1 className="text-2xl">Meals Graffiti</h1>
+            <motion.div
+              className="flex items-center gap-1"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.6 }}
+            >
+              <img className="w-14 h-14 " src={logoskin} alt="Logo" />
+              <h1 className="text-2xl -ml-2 font-semibold">
+                <span className="text-purple-600">Meal</span>
+                <span className="text-orange-400">sGraff</span>
+                <span className="text-yellow-400">iti</span>
+              </h1>
+            </motion.div>
           </div>
           <ul className="space-y-4 mt-4 font-semibold">
             <li>

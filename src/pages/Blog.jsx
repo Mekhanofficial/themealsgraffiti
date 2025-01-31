@@ -9,6 +9,7 @@ import fx19 from "../pictures/fx19.jpg";
 import fx21 from "../pictures/fx21.jpg";
 import fx20 from "../pictures/fx20.jpg";
 import fx22 from "../pictures/fx22.jpg";
+import dx3 from "../pictures/dx3.jpg";
 import gbg2 from "../pictures/gbg2.jpg";
 
 export default function BlogPage() {
@@ -99,7 +100,7 @@ export default function BlogPage() {
               zIndex: "-2",
               objectFit: "cover",
             }}
-            src={px23}
+            src={dx3}
             alt="Background image showcasing a restaurant or food ambiance"
           />
 
@@ -111,7 +112,7 @@ export default function BlogPage() {
           >
             <h1 className="font-bold text-5xl text-white">Our Blog</h1>
             <h3 className="text-orange-700 font-semibold text-xl mt-2">
-              HOME-BLOG
+              HOME-PAGES-BLOG
             </h3>
           </motion.div>
         </div>

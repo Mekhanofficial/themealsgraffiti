@@ -47,7 +47,7 @@ export default function AboutPage() {
 
   const testimonials = [
     {
-      text: "Rosoi is my go-to place for celebrating special occasions. Their food is always delightful.",
+      text: "The Mealsgraffiti is my go-to place for celebrating special occasions. Their food is always delightful.",
       name: "Maichel Williamson",
       position: "CTO, Morlex Group",
       image: dp1,
@@ -68,7 +68,7 @@ export default function AboutPage() {
       rightImage: quote,
     },
     {
-      text: "Rosoi delivers exceptional quality food with a unique taste that keeps me coming back.",
+      text: "The Mealsgraffiti delivers exceptional quality food with a unique taste that keeps me coming back.",
       name: "Emma Watson",
       position: "Designer, Creative Studio",
       image: dp4,
@@ -82,7 +82,7 @@ export default function AboutPage() {
       rightImage: quote,
     },
     {
-      text: "Every meal at Rosoi feels like a celebration of flavors. Truly an unforgettable dining experience.",
+      text: "Every meal at The Mealsgraffiti feels like a celebration of flavors. Truly an unforgettable dining experience.",
       name: "Jessica Adams",
       position: "Blogger",
       image: dp6,
@@ -152,58 +152,68 @@ export default function AboutPage() {
           </motion.div>
         </div>
 
-        <div
-          className="relative px-5 sm:px-20 flex flex-col sm:flex-row items-center gap-10"
-          style={{
-            backgroundImage: `url(${fx5})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            height: "100vh",
-            color: "white",
-          }}
-        >
-          <motion.img
-            src={chef}
-            alt="Chef"
-            className="w-full sm:w-auto"
-            style={{
-              height: "auto",
-              maxHeight: "650px",
-              objectFit: "cover",
-            }}
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          />
-
-          <motion.div
-            className="relative text-center sm:text-left sm:bottom-0 bottom-5"
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <h2 className="text-2xl mb-5 text-orange-500 font-mono font-semibold">
-              FRESH & TASTY FOOD
-            </h2>
-            <h1 className="text-4xl sm:text-6xl text-white font-semibold mb-5">
-              Multi Cuisine with <br /> the Traditional Cuisine
-            </h1>
-            <h3 className="text-lg sm:text-2xl mb-5 text-white">
-              Rosoi is one of the most popular Restaurants with a unique <br />
-              & special menu made by our passionate chefs with love and <br />
-              quality that can impress you.
-            </h3>
-            <h3 className="text-lg sm:text-2xl text-white">
-              Call for Reservation
-              <span className="text-orange-500 underline ml-2">
-                +234 905 576 5770
-              </span>
-            </h3>
-            <button className="border-x-2 border-gray-500 font-semibold mt-10 p-2 w-44 hover:bg-orange-500 hover:text-white transition duration-300 ease-in-out">
-              View full Menu
-            </button>
-          </motion.div>
-        </div>
+         <div
+                   className="relative px-5 sm:px-8 md:px-16 lg:px-20 flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12"
+                   style={{
+                     backgroundImage: `url(${fx5})`,
+                     backgroundSize: "cover",
+                     backgroundPosition: "center",
+                     backgroundRepeat: "no-repeat",
+                     minHeight: "100vh", // Keeps height consistent
+                     maxHeight: "100vh", // Prevents background from becoming too long
+                     color: "white",
+                     display: "flex",
+                     alignItems: "center", // Centers content vertically
+                   }}
+                 >
+                   {/* Image Section (Left Side) */}
+                   <motion.div
+                     className="w-full md:w-1/2 flex justify-center md:justify-start"
+                     initial={{ opacity: 0, x: -50 }}
+                     whileInView={{ opacity: 1, x: 0 }}
+                     viewport={{ once: true, amount: 0.5 }}
+                     transition={{ duration: 1, ease: "easeOut" }}
+                   >
+                     <img
+                       src={chef}
+                       alt="Restaurant Interior"
+                       className="w-full max-w-sm md:max-w-md lg:max-w-lg h-auto object-cover rounded-lg shadow-lg"
+                     />
+                   </motion.div>
+       
+                   {/* Text Section (Right Side) */}
+                   <motion.div
+                     className="w-full md:w-1/2 text-center md:text-left"
+                     initial={{ opacity: 0, x: 50 }}
+                     whileInView={{ opacity: 1, x: 0 }}
+                     viewport={{ once: true, amount: 0.5 }}
+                     transition={{ duration: 1, ease: "easeOut" }}
+                   >
+                     <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-4 text-orange-500 font-mono font-semibold">
+                       FRESH & TASTY FOOD
+                     </h2>
+                     <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white font-semibold mb-4">
+                       A Sophisticated and <br className="hidden md:block" />{" "}
+                       Traditional Cuisine
+                     </h1>
+                     <h3 className="text-sm sm:text-base md:text-lg lg:text-xl mb-4 text-gray-300 leading-relaxed">
+                       The Mealsgraffiti is one of the most popular Restaurants with a unique{" "}
+                       <br className="hidden md:block" />& special menu made by our
+                       passionate chefs with love and{" "}
+                       <br className="hidden md:block" />
+                       quality that can impress you.
+                     </h3>
+                     <h3 className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300">
+                       Call for Reservation
+                       <span className="text-orange-500 underline ml-2">
+                         +01234 567 891
+                       </span>
+                     </h3>
+                     <button className="border-2 border-gray-500 font-semibold mt-4 md:mt-8 p-2 md:p-3 w-full md:w-auto md:px-6 hover:bg-orange-500 hover:text-white transition duration-300 ease-in-out">
+                       View Full Menu
+                     </button>
+                   </motion.div>
+                 </div>
 
         <div
           className="relative text-white font-semibold py-10"

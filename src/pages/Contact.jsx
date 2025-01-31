@@ -1,8 +1,8 @@
 import FooterPage from "../components/Footer";
 import HeaderPage from "../components/Header";
-import contactpx from "../pictures/contactpx.jpg";
+import contactpic from "../pictures/contactpix.jpg";
 import fx22 from "../pictures/fx22.jpg";
-import dx3 from "../pictures/dx3.jpg";
+import blogpx from "../pictures/blogpx.jpg";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -81,7 +81,7 @@ export default function ContactPage() {
               zIndex: "-2",
               objectFit: "cover",
             }}
-            src={dx3}
+            src={blogpx}
             alt="Background image showcasing a restaurant or food ambiance"
           />
 
@@ -136,7 +136,7 @@ export default function ContactPage() {
             <div className="w-full md:w-1/2">
               <img
                 className="w-full h-96 object-cover rounded-md"
-                src={contactpx}
+                src={contactpic}
                 alt="Contact background"
               />
             </div>

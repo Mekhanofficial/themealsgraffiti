@@ -1,5 +1,6 @@
 import { faLongArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 import dp1 from "../../pictures/dp1.jpg";
 import dp2 from "../../pictures/dp2.jpg";
 import dp3 from "../../pictures/dp3.jpg";
@@ -60,24 +61,27 @@ export default function HomeHeroSection() {
 
   const slides = [
     {
-      title: "GET 35% DISCOUNT",
-      subtitle: "Mouth Watering Test",
-      description: "Best food made by our passionate chefs",
-      buttonText: "Book a Table",
+      title: "SAVOR THE FLAVOR",
+      subtitle: "Bold, Unforgettable Tastes",
+      description:
+        "Delight in expertly crafted dishes that transport you to a world of exquisite flavor.",
+      buttonText: "Reserve Your Table",
       imageSrc: fx15, // You can replace this with the correct image path
     },
     {
-      title: "GET 20% OFF THIS WEEK",
-      subtitle: "Amazing and Flavorful Dishes",
-      description: "Handcrafted recipes by expert chefs",
-      buttonText: "Order Now",
+      title: "CULINARY MASTERPIECE",
+      subtitle: "Where Passion Meets Perfection",
+      description:
+        "Every dish is a work of art, thoughtfully prepared by chefs who pour their soul into every bite.",
+      buttonText: "Order Your Favorites",
       imageSrc: fx15, // Replace with another image
     },
     {
-      title: "TRY OUR SPECIAL MENU",
-      subtitle: "Satisfy Your Cravings",
-      description: "Experience the finest gourmet meals",
-      buttonText: "Explore Menu",
+      title: "A JOURNEY THROUGH FLAVOR",
+      subtitle: "Crafted with Love, Served with Passion",
+      description:
+        "Embark on a unique gastronomic adventure that will leave you craving more. A taste experience like no other.",
+      buttonText: "Explore Our Menu",
       imageSrc: fx15, // Replace with another image
     },
   ];
@@ -100,30 +104,6 @@ const menuItems = {
       price: "$8.99",
       description:
         "Freshly baked banana bread, soft and delicious with a hint of sweetness.",
-    },
-    {
-      name: "Banana Bread Medium",
-      price: "$10.50",
-      description:
-        "A larger portion of our signature banana bread, perfect for sharing.",
-    },
-    {
-      name: "Jam Doughnuts",
-      price: "$4.99",
-      description:
-        "Soft, fluffy doughnuts filled with sweet fruit jam, perfect for a quick snack.",
-    },
-    {
-      name: "Chocolate x Vanilla Cookies",
-      price: "$6.50",
-      description:
-        "A decadent mix of chocolate and vanilla cookies, chewy and rich in flavor.",
-    },
-    {
-      name: "Chicken Sandwich",
-      price: "$9.99",
-      description:
-        "A crispy chicken fillet served with fresh lettuce, tomato, and mayo in a soft bun.",
     },
     {
       name: "Long Bun Chicken Sandwich",
@@ -151,22 +131,10 @@ const menuItems = {
         "Golden fried plantain slices, crispy on the outside and tender on the inside.",
     },
     {
-      name: "Stewed Beef",
-      price: "$9.99",
-      description:
-        "Tender beef stewed in a rich, flavorful sauce, served hot and juicy.",
-    },
-    {
       name: "Peppered Chicken",
       price: "$11.50",
       description:
         "Spicy grilled chicken seasoned with peppers and herbs, served with a kick.",
-    },
-    {
-      name: "Peppered Beef",
-      price: "$10.50",
-      description:
-        "Tender beef cooked in a spicy pepper sauce, packed with flavor.",
     },
     {
       name: "Burgers",
@@ -176,6 +144,19 @@ const menuItems = {
     },
   ],
   brunch: [
+    {
+      name: "Banana Bread Medium",
+      extra: "RECOMMENDED",
+      price: "$10.50",
+      description:
+        "A larger portion of our signature banana bread, perfect for sharing.",
+    },
+    {
+      name: "Chicken Sandwich",
+      price: "$9.99",
+      description:
+        "A crispy chicken fillet served with fresh lettuce, tomato, and mayo in a soft bun.",
+    },
     {
       name: "Meat Pie",
       price: "$5.99",
@@ -196,19 +177,13 @@ const menuItems = {
     },
     {
       name: "Long Bun Chicken Sandwich",
-      extra: "RECOMMENDED",
+      extra: "CHEF CHOICE",
       price: "$12.00",
       description:
         "A juicy chicken fillet served in a long bun, with fresh toppings and a savory sauce.",
     },
   ],
   lunch: [
-    {
-      name: "Party Jollof Rice",
-      price: "$15.99",
-      description:
-        "A rich and flavorful Jollof rice, cooked to perfection and perfect for lunch gatherings.",
-    },
     {
       name: "Pineapple Shrimps Fried Rice",
       extra: "RECOMMENDED",
@@ -223,16 +198,10 @@ const menuItems = {
         "A spiced rice dish with a mix of chicken, sausage, and shrimp, all cooked together.",
     },
     {
-      name: "Plain Fried Rice",
-      price: "$14.99",
+      name: "Party Jollof Rice",
+      price: "$15.99",
       description:
-        "Delicious fried rice made with fresh ingredients, lightly seasoned for a satisfying meal.",
-    },
-    {
-      name: "Suya Rice",
-      price: "$16.99",
-      description:
-        "Fragrant rice served with spiced beef, grilled to perfection.",
+        "A rich and flavorful Jollof rice, cooked to perfection and perfect for lunch gatherings.",
     },
     {
       name: "Special Shrimps Fried Rice",
@@ -259,25 +228,6 @@ const menuItems = {
       description:
         "A refreshing side of creamy coleslaw, perfect to balance any meal.",
     },
-    {
-      name: "Chinese Rice",
-      extra: "CHEF CHOICE",
-      price: "$15.50",
-      description:
-        "A chef's special Chinese-style fried rice, packed with vegetables and seasoning.",
-    },
-    {
-      name: "Plantain",
-      price: "$6.50",
-      description:
-        "Fried golden plantains, crispy on the outside and soft on the inside.",
-    },
-    {
-      name: "Moi Moi",
-      price: "$7.99",
-      description:
-        "Steamed bean cake with a rich, spicy flavor, perfect as a side or main.",
-    },
   ],
   dinner: [
     {
@@ -286,24 +236,6 @@ const menuItems = {
       price: "$10.99",
       description:
         "Juicy grilled chicken with a smoky flavor, served with your choice of sides.",
-    },
-    {
-      name: "Grilled Chicken Medium",
-      price: "$12.50",
-      description:
-        "A larger portion of grilled chicken, perfectly seasoned and cooked to perfection.",
-    },
-    {
-      name: "Grilled Turkey",
-      price: "$14.99",
-      description:
-        "Grilled turkey with a crispy skin and juicy meat, served hot.",
-    },
-    {
-      name: "Peppered Chicken",
-      price: "$11.50",
-      description:
-        "Spicy grilled chicken, seasoned with pepper and herbs for a bold flavor.",
     },
     {
       name: "Peppered Turkey",
@@ -318,14 +250,7 @@ const menuItems = {
         "Crispy fried chicken, golden brown on the outside, juicy on the inside.",
     },
     {
-      name: "Peppered Beef",
-      price: "$10.50",
-      description:
-        "Beef chunks cooked in a spicy pepper sauce, perfect for spice lovers.",
-    },
-    {
       name: "Peppered Snail",
-      extra: "SEASONAL",
       price: "$15.99",
       description:
         "Tender snails cooked in a rich, spicy pepper sauce, a delicacy served seasonally.",
@@ -343,29 +268,11 @@ const menuItems = {
         "Fried hake fish seasoned with spicy pepper sauce, served crispy and hot.",
     },
     {
-      name: "Assorted Meat",
-      price: "$16.00",
-      description:
-        "A mix of grilled meats including chicken, beef, and turkey, all seasoned to perfection.",
-    },
-    {
       name: "Stewed Titus",
+      extra: "SEASONAL",
       price: "$12.99",
       description:
         "A classic stew made with tender Titus fish, cooked in a rich, flavorful sauce.",
-    },
-    {
-      name: "Stewed Beef",
-      extra: "CHEF CHOICE",
-      price: "$9.99",
-      description:
-        "Beef stewed in a delicious sauce, chosen by the chef for its balance of flavors.",
-    },
-    {
-      name: "Burgers",
-      price: "$11.50",
-      description:
-        "Juicy beef burger with lettuce, tomato, and a special sauce, served with fries.",
     },
   ],
 };
@@ -388,50 +295,50 @@ const menuItems = {
     }
   };
 
-  const testimonials = [
-    {
-      text: "Rosoi is my go-to place for celebrating special occasions. Their food is always delightful.",
-      name: "Maichel Williamson",
-      position: "CTO, Morlex Group",
-      image: dp1,
-      rightImage: quote,
-    },
-    {
-      text: "The dining experience here is unmatched! The chefs truly outdo themselves with every dish.",
-      name: "Sarah Johnson",
-      position: "CEO, TechCorp",
-      image: dp2,
-      rightImage: quote,
-    },
-    {
-      text: "I love the cozy atmosphere and the excellent service. Perfect for a relaxed evening.",
-      name: "John Doe",
-      position: "Manager, GlobalTech",
-      image: dp3,
-      rightImage: quote,
-    },
-    {
-      text: "Rosoi delivers exceptional quality food with a unique taste that keeps me coming back.",
-      name: "Emma Watson",
-      position: "Designer, Creative Studio",
-      image: dp4,
-      rightImage: quote,
-    },
-    {
-      text: "A hidden gem for food lovers! Their unique menu surprises me in the best way possible.",
-      name: "Michael Brown",
-      position: "Freelancer",
-      image: dp5,
-      rightImage: quote,
-    },
-    {
-      text: "Every meal at Rosoi feels like a celebration of flavors. Truly an unforgettable dining experience.",
-      name: "Jessica Adams",
-      position: "ger",
-      image: dp6,
-      rightImage: quote,
-    },
-  ];
+ const testimonials = [
+   {
+     text: "The Mealsgraffiti is my go-to place for celebrating special occasions. Their food is always delightful and full of flavor.",
+     name: "Michael Williamson",
+     position: "CTO, Morlex Group",
+     image: dp1,
+     rightImage: quote,
+   },
+   {
+     text: "The dining experience at The Mealsgraffiti is unmatched! The chefs truly outdo themselves with every dish.",
+     name: "Sarah Johnson",
+     position: "CEO, TechCorp",
+     image: dp2,
+     rightImage: quote,
+   },
+   {
+     text: "I love the cozy atmosphere and the excellent service at The Mealsgraffiti. Perfect for a relaxed evening with amazing food.",
+     name: "John Doe",
+     position: "Manager, GlobalTech",
+     image: dp3,
+     rightImage: quote,
+   },
+   {
+     text: "The Mealsgraffiti delivers exceptional quality food with a unique taste that keeps me coming back for more.",
+     name: "Emma Watson",
+     position: "Designer, Creative Studio",
+     image: dp4,
+     rightImage: quote,
+   },
+   {
+     text: "A hidden gem for food lovers! The Mealsgraffiti's unique menu surprises me in the best way possible every time.",
+     name: "Michael Brown",
+     position: "Freelancer",
+     image: dp5,
+     rightImage: quote,
+   },
+   {
+     text: "Every meal at The Mealsgraffiti feels like a celebration of flavors. Truly an unforgettable dining experience.",
+     name: "Jessica Adams",
+     position: "Food Blogger",
+     image: dp6,
+     rightImage: quote,
+   },
+ ];
 
   const settings = {
     dots: true,
@@ -474,27 +381,31 @@ const menuItems = {
             />
 
             {/* Container for Image and Text */}
-            <div className="flex flex-col md:flex-row items-center justify-between mx-5 md:mx-20 text-white relative h-full">
+            <div className="flex flex-col md:flex-row items-center justify-center mx-5 md:mx-20 text-white relative h-full">
               {/* Content Section (Left Side) */}
-              <div className="w-full md:w-1/2 flex items-center justify-center md:justify-start">
+              <div className="w-full md:w-1/2 flex items-center justify-center">
                 <div className="flex flex-col justify-center space-y-5 text-center md:text-left">
-                  <h1 className="text-orange-500 text-4xl md:text-5xl font-mono transition-transform duration-500 ease-in-out translate-y-0 title-animate">
+                  <h1 className="text-orange-500 text-4xl md:text-4xl font-mono transition-transform duration-500 ease-in-out translate-y-0 title-animate">
                     {slides[currentIndex].title}
                   </h1>
-                  <h1 className="text-4xl md:text-7xl font-semibold transition-transform duration-500 ease-in-out translate-y-0 subtitle-animate">
+                  <h1 className="text-4xl md:text-6xl font-semibold transition-transform duration-500 ease-in-out translate-y-0 subtitle-animate">
                     {slides[currentIndex].subtitle}
                   </h1>
-                  <h3 className="text-xl md:text-2xl transition-transform duration-500 ease-in-out translate-y-0 description-animate">
+                  <h3 className="text-xl md:text-xl transition-transform duration-500 ease-in-out translate-y-0 description-animate">
                     {slides[currentIndex].description}
                   </h3>
-                  <button className="border-2 border-gray-500 font-semibold mt-10 p-3 w-full md:w-44 hover:bg-orange-500 hover:text-white transition-colors duration-300 button-animate">
-                    {slides[currentIndex].buttonText}
-                  </button>
+                  
+                    <Link to="/Menu" 
+                      className="border-2 border-gray-500 font-semibold mt-10 p-3 w-full md:w-44 hover:bg-orange-500 hover:text-white transition-colors duration-300 button-animate cursor-pointer z-10"
+                      onClick={() => console.log("Button clicked!")} // Debugging click event
+                    >
+                      {slides[currentIndex].buttonText}
+                  </Link>
                 </div>
               </div>
 
               {/* Image Section (Right Side) */}
-              <div className="w-full md:w-1/2 flex items-center justify-center md:justify-end">
+              <div className="w-full md:w-1/2 flex items-center justify-center mt-8 md:mt-0">
                 <img
                   className="w-full max-w-md md:max-w-lg lg:max-w-xl object-contain transition-opacity duration-500 ease-in-out opacity-100 image-animate"
                   src={slides[currentIndex].imageSrc}
@@ -505,7 +416,7 @@ const menuItems = {
           </div>
 
           <div
-            className="relative px-5 sm:px-8 md:px-16 lg:px-20 flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12"
+            className="relative px-5 sm:px-8 md:px-16 lg:px-20 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 "
             style={{
               backgroundImage: `url(${fx5})`,
               backgroundSize: "cover",
@@ -514,13 +425,11 @@ const menuItems = {
               minHeight: "100vh", // Keeps height consistent
               maxHeight: "100vh", // Prevents background from becoming too long
               color: "white",
-              display: "flex",
-              alignItems: "center", // Centers content vertically
             }}
           >
             {/* Image Section (Left Side) */}
             <motion.div
-              className="w-full md:w-1/2 flex justify-center md:justify-start"
+              className="w-full md:w-1/2 flex justify-center items-center"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.5 }}
@@ -542,28 +451,34 @@ const menuItems = {
               transition={{ duration: 1, ease: "easeOut" }}
             >
               <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-4 text-orange-500 font-mono font-semibold">
-                FRESH & TASTY FOOD
+                FRESH FLAVORS, UNLIMITED POSSIBILITIES
               </h2>
               <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white font-semibold mb-4">
-                A Sophisticated and <br className="hidden md:block" />{" "}
-                Traditional Cuisine
+                Experience Culinary Excellence{" "}
+                <br className="hidden md:block" /> and Timeless Tradition
               </h1>
               <h3 className="text-sm sm:text-base md:text-lg lg:text-xl mb-4 text-gray-300 leading-relaxed">
-                Rosoi is one of the most popular Restaurants with a unique{" "}
-                <br className="hidden md:block" />& special menu made by our
-                passionate chefs with love and{" "}
-                <br className="hidden md:block" />
-                quality that can impress you.
+                The Mealsgraffiti isn't just a restaurant; it's a celebration of
+                flavor <br className="hidden md:block" />
+                crafted by chefs who pour their soul into every dish. Bold,
+                inventive, and unforgettable.
               </h3>
               <h3 className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300">
-                Call for Reservation
-                <span className="text-orange-500 underline ml-2">
-                  +01234 567 891
-                </span>
+                Ready for a taste explosion?{" "}
+                <a
+                  href="tel:+01234567891"
+                  className="text-orange-500 underline ml-2"
+                >
+                  Call +01234 567 891 for Reservations
+                </a>
               </h3>
-              <button className="border-2 border-gray-500 font-semibold mt-4 md:mt-8 p-2 md:p-3 w-full md:w-auto md:px-6 hover:bg-orange-500 hover:text-white transition duration-300 ease-in-out">
-                View Full Menu
-              </button>
+
+              {/* Button linking to the menu page */}
+              <Link to="/menu">
+                <button className="border-2 border-gray-500 font-semibold mt-4 md:mt-8 p-2 md:p-3 w-full md:w-auto md:px-6 hover:bg-orange-500 hover:text-white transition duration-300 ease-in-out">
+                  Explore the Full Menu
+                </button>
+              </Link>
             </motion.div>
           </div>
         </div>
@@ -589,22 +504,24 @@ const menuItems = {
 
           {/* Top Section */}
           <motion.div
-            className="text-center px-6 sm:px-12 md:px-24 lg:px-48 absolute top-20 left-0 w-full z-10"
+            className="text-center px-4 sm:px-8 md:px-16 lg:px-32 absolute top-16 left-0 w-full z-10"
             initial={{ y: -50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-orange-500 text-xl mb-5">TEST A LITTLE BIT</h2>
-            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5">
+            <h2 className="text-orange-500 text-lg sm:text-xl mb-4 sm:mb-5">
+              TEST A LITTLE BIT
+            </h2>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-5">
               Our Special Menu
             </h3>
 
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-7 mt-5 justify-center items-center mb-12">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5 md:gap-7 mt-4 sm:mt-5 justify-center items-center mb-8 sm:mb-12">
               {["breakfast", "brunch", "lunch", "dinner"].map((menu) => (
                 <motion.button
                   key={menu}
-                  className={`border-2 p-3 font-semibold w-full ${
+                  className={`border-2 p-2 sm:p-3 font-semibold w-full rounded-lg transition-all duration-300 ease-in-out ${
                     selectedMenu === menu
                       ? "text-orange-500 border-orange-500"
                       : "text-white border-white"
@@ -620,10 +537,10 @@ const menuItems = {
           </motion.div>
 
           {/* Menu Section */}
-          <div className="relative mx-3 md:mx-8 flex flex-col gap-7 md:flex-row items-center justify-center text-white px-4 md:px-6 pt-48 mb-32">
+          <div className="relative mx-3 sm:mx-6 md:mx-10 flex flex-col gap-5 md:gap-7 lg:flex-row items-center justify-center text-white px-3 sm:px-5 md:px-6 pt-40 sm:pt-48 mb-24 sm:mb-32">
             {/* Image */}
             <motion.img
-              className="relative top-32 max-w-full w-full md:w-[650px] h-[700px] object-cover order-1 md:order-2 md:mb-0"
+              className="relative top-24 sm:top-32 max-w-full w-full md:w-[550px] lg:w-[650px] h-[500px] sm:h-[600px] md:h-[700px] object-cover order-1 lg:order-2"
               src={getMenuImage()}
               alt="Food Image"
               initial={{ scale: 0.9, opacity: 0 }}
@@ -633,7 +550,7 @@ const menuItems = {
             />
 
             <motion.div
-              className="flex flex-col relative top-24 gap-4 md:gap-8 w-full md:w-2/3 order-2 md:order-1"
+              className="flex flex-col relative top-16 sm:top-24 gap-3 sm:gap-5 md:gap-7 w-full md:w-2/3 order-2 lg:order-1"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -642,7 +559,7 @@ const menuItems = {
               {menuItems[selectedMenu].map((item, index) => (
                 <motion.div
                   key={index}
-                  className="flex flex-col mt-6"
+                  className="flex flex-col mt-4 sm:mt-6"
                   initial={{ x: -50, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.7, delay: index * 0.2 }}
@@ -650,22 +567,26 @@ const menuItems = {
                 >
                   <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
                     <div className="flex items-center w-full md:w-auto">
-                      <h2 className="font-bold text-xl">{item.name}</h2>
+                      <h2 className="font-bold text-lg sm:text-xl">
+                        {item.name}
+                      </h2>
                       {item.extra && (
-                        <h2 className="font-bold text-sm bg-orange-700 p-2 md:text-xl mx-4">
+                        <h2 className="font-bold text-xs sm:text-sm bg-orange-700 p-1 sm:p-2 md:text-lg mx-2 sm:mx-4">
                           {item.extra}
                         </h2>
                       )}
                     </div>
 
                     <div className="flex flex-col md:flex-row items-start md:items-center">
-                      <h2 className="font-semibold text-gray-400 hidden md:block mx-4">
+                      <h2 className="font-semibold text-gray-400 hidden md:block mx-2 sm:mx-4">
                         {item.dash}
                       </h2>
-                      <h2 className="font-semibold text-xl">{item.price}</h2>
+                      <h2 className="font-semibold text-lg sm:text-xl">
+                        {item.price}
+                      </h2>
                     </div>
                   </div>
-                  <p className="font-light text-sm md:text-base mt-2 md:mt-0">
+                  <p className="font-light text-sm sm:text-base mt-1 sm:mt-2">
                     {item.description}
                   </p>
                 </motion.div>
@@ -674,18 +595,19 @@ const menuItems = {
 
             {/* Arrow Icon */}
             <motion.div
-              className="absolute bottom-10 flex justify-center w-full"
+              className="absolute bottom-6 sm:bottom-10 flex justify-center w-full"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
             >
               <FontAwesomeIcon
-                className="h-6 w-6 text-gray-300"
+                className="h-5 sm:h-6 w-5 sm:w-6 text-gray-300"
                 icon={faLongArrowRight}
               />
             </motion.div>
           </div>
         </motion.div>
+
         <motion.div
           className="flex flex-col bg-zinc-900"
           initial={{ opacity: 0 }}
@@ -729,7 +651,7 @@ const menuItems = {
                 <div className="flex flex-col sm:flex-row lg:flex-row items-center sm:items-start text-center sm:text-left justify-between gap-6">
                   {/* Text Section */}
                   <motion.div
-                    className="w-full sm:w-[60%] lg:w-full mb-6 sm:mb-8 lg:mb-10"
+                    className="w-full sm:w-[60%] lg:w-[60%] mb-6 sm:mb-8 lg:mb-10"
                     initial={{ x: -50, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.7 }}
@@ -754,11 +676,11 @@ const menuItems = {
                       ease: "linear",
                     }}
                   >
-                    {/* <img
-                      className="mt-6 sm:mt-8 lg:mt-0 max-w-full h-auto object-contain"
+                    <img
+                      className="mt-6 sm:mt-8 lg:mt-0 max-w-[150px] sm:max-w-[200px] lg:max-w-[250px] h-auto object-contain"
                       src={fx15}
                       alt="Rotating Image"
-                    /> */}
+                    />
                   </motion.div>
                 </div>
 
@@ -773,19 +695,19 @@ const menuItems = {
                   {[
                     {
                       title: "Passionate Chef",
-                      text: "Rosoi is one of the most popular Restaurants & Special menus made by our passionate chefs, with quality that will impress you.",
+                      text: "Our chefs pour their heart into every dish, crafting flavors that leave you craving more.",
                     },
                     {
                       title: "100% Fresh Food",
-                      text: "Rosoi is one of the most popular Restaurants & Special menus made by our passionate chefs, with quality that will impress you.",
+                      text: "Only the freshest ingredients make it to your plate—because you deserve the best.",
                     },
                     {
                       title: "Memorable Ambience",
-                      text: "Rosoi is one of the most popular Restaurants & Special menus made by our passionate chefs, with quality that will impress you.",
+                      text: "Step into a vibe that’s as unforgettable as the food. Perfect for every occasion.",
                     },
                     {
-                      title: "Special Dish for Occasions",
-                      text: "Rosoi is one of the most popular Restaurants & Special menus made by our passionate chefs, with quality that will impress you.",
+                      title: "Flavor Masterpiece",
+                      text: "Discover our signature creations—unique, bold, and made to wow your taste buds.",
                     },
                   ].map((feature, index) => (
                     <motion.div
@@ -809,6 +731,7 @@ const menuItems = {
             </motion.div>
           </div>
         </motion.div>
+
         <motion.div
           className="text-white flex flex-col lg:flex-row items-center justify-between"
           initial="hidden"
@@ -834,7 +757,7 @@ const menuItems = {
           >
             <div className="absolute inset-0 bg-black bg-opacity-80 p-6">
               <motion.h1
-                className="text-orange-500 text-xl font-mono font-semibold mb-5"
+                className="text-orange-500 text-xl font-mono font-semibold mt-20 mb-5"
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
