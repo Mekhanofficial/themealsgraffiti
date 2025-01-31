@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLongArrowRight } from "@fortawesome/free-solid-svg-icons";
 import HeaderPage from "../components/Header";
@@ -112,7 +113,7 @@ export default function BlogPage() {
           >
             <h1 className="font-bold text-5xl text-white">Our Blog</h1>
             <h3 className="text-orange-700 font-semibold text-xl mt-2">
-              HOME-PAGES-BLOG
+              <Link to="/">HOME-</Link>PAGES-BLOG
             </h3>
           </motion.div>
         </div>

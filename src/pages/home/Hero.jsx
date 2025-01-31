@@ -7,12 +7,11 @@ import dp3 from "../../pictures/dp3.jpg";
 import dp4 from "../../pictures/dp4.jpg";
 import dp5 from "../../pictures/dp5.jpg";
 import dp6 from "../../pictures/dp6.jpg";
+import heropix1 from "../../pictures/heropix1.png";
+import heropix2 from "../../pictures/heropix2.png";
+import heropix3 from "../../pictures/heropix3.png";
 import fx2 from "../../pictures/fx2.png";
 import fx5 from "../../pictures/fx5.jpg";
-import fx1 from "../../pictures/fx1.jpg";
-import fx7 from "../../pictures/fx14.jpg";
-import fx8 from "../../pictures/fx8.jpg";
-import fx9 from "../../pictures/fx9.jpg";
 import fx10 from "../../pictures/fx10.jpg";
 import fx11 from "../../pictures/fx11.jpg";
 import fx12 from "../../pictures/fx12.jpg";
@@ -66,7 +65,7 @@ export default function HomeHeroSection() {
       description:
         "Delight in expertly crafted dishes that transport you to a world of exquisite flavor.",
       buttonText: "Reserve Your Table",
-      imageSrc: fx15, // You can replace this with the correct image path
+      imageSrc: heropix1, // You can replace this with the correct image path
     },
     {
       title: "CULINARY MASTERPIECE",
@@ -74,7 +73,7 @@ export default function HomeHeroSection() {
       description:
         "Every dish is a work of art, thoughtfully prepared by chefs who pour their soul into every bite.",
       buttonText: "Order Your Favorites",
-      imageSrc: fx15, // Replace with another image
+      imageSrc: heropix2, // Replace with another image
     },
     {
       title: "A JOURNEY THROUGH FLAVOR",
@@ -82,7 +81,7 @@ export default function HomeHeroSection() {
       description:
         "Embark on a unique gastronomic adventure that will leave you craving more. A taste experience like no other.",
       buttonText: "Explore Our Menu",
-      imageSrc: fx15, // Replace with another image
+      imageSrc: heropix3, // Replace with another image
     },
   ];
 
@@ -101,44 +100,44 @@ const menuItems = {
     {
       name: "Banana Bread",
       extra: "RECOMMENDED",
-      price: "$8.99",
+      price: "#2500",
       description:
         "Freshly baked banana bread, soft and delicious with a hint of sweetness.",
     },
     {
       name: "Long Bun Chicken Sandwich",
-      price: "$12.00",
+      price: "#3000",
       description:
         "A juicy, crispy chicken fillet served in a long, soft bun with all the toppings.",
     },
     {
       name: "Party Jollof Rice",
-      price: "$15.99",
+      price: "#1000",
       description:
         "A hearty serving of flavorful Jollof rice, perfect for sharing at parties.",
     },
     {
       name: "Plain Fried Rice",
       extra: "CHEF CHOICE",
-      price: "$14.99",
+      price: "#1000",
       description:
         "A simple yet delicious fried rice made with fresh vegetables and seasoned to perfection.",
     },
     {
       name: "Plantain",
-      price: "$6.50",
+      price: "#1000",
       description:
         "Golden fried plantain slices, crispy on the outside and tender on the inside.",
     },
     {
       name: "Peppered Chicken",
-      price: "$11.50",
+      price: "#4000",
       description:
         "Spicy grilled chicken seasoned with peppers and herbs, served with a kick.",
     },
     {
       name: "Burgers",
-      price: "$11.50",
+      price: "#5000",
       description:
         "Juicy beef burger served with lettuce, tomato, and a special sauce.",
     },
@@ -147,38 +146,38 @@ const menuItems = {
     {
       name: "Banana Bread Medium",
       extra: "RECOMMENDED",
-      price: "$10.50",
+      price: "#2000",
       description:
         "A larger portion of our signature banana bread, perfect for sharing.",
     },
     {
       name: "Chicken Sandwich",
-      price: "$9.99",
+      price: "#2000",
       description:
         "A crispy chicken fillet served with fresh lettuce, tomato, and mayo in a soft bun.",
     },
     {
       name: "Meat Pie",
-      price: "$5.99",
+      price: "#1000",
       description:
         "Flaky pastry filled with a savory mix of seasoned meat and vegetables.",
     },
     {
       name: "Chicken Pie",
-      price: "$6.50",
+      price: "#1200",
       description:
         "Flaky pastry filled with tender chicken and a rich, creamy filling.",
     },
     {
       name: "Chicken Sandwich",
-      price: "$9.99",
+      price: "#2000",
       description:
         "A crispy chicken sandwich served with lettuce, tomato, and mayo.",
     },
     {
       name: "Long Bun Chicken Sandwich",
       extra: "CHEF CHOICE",
-      price: "$12.00",
+      price: "#3000",
       description:
         "A juicy chicken fillet served in a long bun, with fresh toppings and a savory sauce.",
     },
@@ -187,44 +186,44 @@ const menuItems = {
     {
       name: "Pineapple Shrimps Fried Rice",
       extra: "RECOMMENDED",
-      price: "$18.50",
+      price: "#2500",
       description:
         "A delightful mix of shrimps, fried rice, and tangy pineapple chunks.",
     },
     {
       name: "Jambalaya Rice",
-      price: "$17.00",
+      price: "#2200",
       description:
         "A spiced rice dish with a mix of chicken, sausage, and shrimp, all cooked together.",
     },
     {
       name: "Party Jollof Rice",
-      price: "$15.99",
+      price: "#1000",
       description:
         "A rich and flavorful Jollof rice, cooked to perfection and perfect for lunch gatherings.",
     },
     {
       name: "Special Shrimps Fried Rice",
       extra: "SEASONAL",
-      price: "$19.50",
+      price: "#2000",
       description:
         "Shrimps fried rice, a seasonal favorite with an extra dose of flavor.",
     },
     {
       name: "Asun Coconut Rice",
-      price: "$18.75",
+      price: "#1700",
       description:
         "A fusion of coconut rice served with tender grilled beef, perfect for a tropical touch.",
     },
     {
       name: "White Rice x Stew",
-      price: "$13.99",
+      price: "#1000",
       description:
         "Simple and classic white rice served with a rich, flavorful stew.",
     },
     {
       name: "Coleslaw",
-      price: "$5.99",
+      price: "#1000",
       description:
         "A refreshing side of creamy coleslaw, perfect to balance any meal.",
     },
@@ -233,49 +232,50 @@ const menuItems = {
     {
       name: "Grilled Chicken",
       extra: "RECOMMENDED",
-      price: "$10.99",
+      price: "#4000",
       description:
         "Juicy grilled chicken with a smoky flavor, served with your choice of sides.",
     },
     {
       name: "Peppered Turkey",
-      price: "$13.50",
+      price: "#5000",
       description:
         "Tender turkey grilled with pepper and seasoning, served hot.",
     },
     {
       name: "Crispy Chicken",
-      price: "$12.75",
+      price: "#3000",
       description:
         "Crispy fried chicken, golden brown on the outside, juicy on the inside.",
     },
     {
       name: "Peppered Snail",
-      price: "$15.99",
+      price: "#5000",
       description:
         "Tender snails cooked in a rich, spicy pepper sauce, a delicacy served seasonally.",
     },
     {
       name: "Peppered Fried Cracker Fish",
-      price: "$14.50",
+      price: "#4000",
       description:
         "Crispy fried fish served with a spicy pepper sauce, perfect for seafood lovers.",
     },
     {
       name: "Peppered Fried Hake Fish",
-      price: "$13.99",
+      price: "#4000",
       description:
         "Fried hake fish seasoned with spicy pepper sauce, served crispy and hot.",
     },
     {
       name: "Stewed Titus",
       extra: "SEASONAL",
-      price: "$12.99",
+      price: "#3000",
       description:
         "A classic stew made with tender Titus fish, cooked in a rich, flavorful sauce.",
     },
   ],
 };
+
 
 
 
@@ -299,46 +299,47 @@ const menuItems = {
    {
      text: "The Mealsgraffiti is my go-to place for celebrating special occasions. Their food is always delightful and full of flavor.",
      name: "Michael Williamson",
-     position: "CTO, Morlex Group",
+     position: "Food Critic, Local Eats",
      image: dp1,
      rightImage: quote,
    },
    {
      text: "The dining experience at The Mealsgraffiti is unmatched! The chefs truly outdo themselves with every dish.",
-     name: "Sarah Johnson",
-     position: "CEO, TechCorp",
+     name: "david Johnson",
+     position: "Restaurant Owner, Taste Haven",
      image: dp2,
      rightImage: quote,
    },
    {
      text: "I love the cozy atmosphere and the excellent service at The Mealsgraffiti. Perfect for a relaxed evening with amazing food.",
-     name: "John Doe",
-     position: "Manager, GlobalTech",
+     name: "sarah Doe",
+     position: "Chef, Gourmet Bistro",
      image: dp3,
      rightImage: quote,
    },
    {
      text: "The Mealsgraffiti delivers exceptional quality food with a unique taste that keeps me coming back for more.",
-     name: "Emma Watson",
-     position: "Designer, Creative Studio",
+     name: "Bill Watson",
+     position: "Food Stylist, Elegant Plates",
      image: dp4,
      rightImage: quote,
    },
    {
      text: "A hidden gem for food lovers! The Mealsgraffiti's unique menu surprises me in the best way possible every time.",
-     name: "Michael Brown",
-     position: "Freelancer",
+     name: "Jason Brown",
+     position: "Food Blogger, The Flavor Journey",
      image: dp5,
      rightImage: quote,
    },
    {
      text: "Every meal at The Mealsgraffiti feels like a celebration of flavors. Truly an unforgettable dining experience.",
      name: "Jessica Adams",
-     position: "Food Blogger",
+     position: "Gastronomy Enthusiast, Taste Explorers",
      image: dp6,
      rightImage: quote,
    },
  ];
+
 
   const settings = {
     dots: true,
@@ -370,7 +371,7 @@ const menuItems = {
     <>
       <section style={{ overflowX: "hidden" }}>
         <HeaderPage />
-        <div className="relative  -mt-20 z-[-1]">
+        <div className="relative  -mt-20 ">
           {/* First Section */}
           <div className="relative h-screen">
             {/* Background Image */}
@@ -394,12 +395,13 @@ const menuItems = {
                   <h3 className="text-xl md:text-xl transition-transform duration-500 ease-in-out translate-y-0 description-animate">
                     {slides[currentIndex].description}
                   </h3>
-                  
-                    <Link to="/Menu" 
-                      className="border-2 border-gray-500 font-semibold mt-10 p-3 w-full md:w-44 hover:bg-orange-500 hover:text-white transition-colors duration-300 button-animate cursor-pointer z-10"
-                      onClick={() => console.log("Button clicked!")} // Debugging click event
-                    >
-                      {slides[currentIndex].buttonText}
+
+                  <Link
+                    to="tel:+2349160002471"
+                    className="border-2 border-gray-500 font-semibold mt-10 p-3 w-full md:w-44 hover:bg-orange-500 hover:text-white transition-colors duration-300 button-animate cursor-pointer z-10"
+                    onClick={() => console.log("Button clicked!")} // Debugging click event
+                  >
+                    {slides[currentIndex].buttonText}
                   </Link>
                 </div>
               </div>
@@ -466,10 +468,10 @@ const menuItems = {
               <h3 className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300">
                 Ready for a taste explosion?{" "}
                 <a
-                  href="tel:+01234567891"
+                  href="tel:+2349160002471"
                   className="text-orange-500 underline ml-2"
                 >
-                  Call +01234 567 891 for Reservations
+                  Call +234 916 0002 471 for Reservations
                 </a>
               </h3>
 
@@ -482,6 +484,7 @@ const menuItems = {
             </motion.div>
           </div>
         </div>
+
         <motion.div
           className="relative w-full"
           style={{
@@ -511,10 +514,10 @@ const menuItems = {
             viewport={{ once: true }}
           >
             <h2 className="text-orange-500 text-lg sm:text-xl mb-4 sm:mb-5">
-              TEST A LITTLE BIT
+              TASTE THE MAGIC
             </h2>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-5">
-              Our Special Menu
+            <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4 sm:mb-5">
+              Explore Our Menu
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5 md:gap-7 mt-4 sm:mt-5 justify-center items-center mb-8 sm:mb-12">
@@ -591,19 +594,25 @@ const menuItems = {
                   </p>
                 </motion.div>
               ))}
-            </motion.div>
-
-            {/* Arrow Icon */}
-            <motion.div
-              className="absolute bottom-6 sm:bottom-10 flex justify-center w-full"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1, delay: 1 }}
-            >
-              <FontAwesomeIcon
-                className="h-5 sm:h-6 w-5 sm:w-6 text-gray-300"
-                icon={faLongArrowRight}
-              />
+              {/* Arrow Icon */}
+              <motion.div
+                className="relative top-10 flex"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1, delay: 1 }}
+              >
+                <Link to="/Menu">
+                  <button className="bg-orange-700 p-2">
+                    <FontAwesomeIcon
+                      className="h-5 sm:h-6 w-5 sm:w-6 text-gray-300 cursor-pointer hover:text-orange-500"
+                      icon={faLongArrowRight}
+                    />
+                    <span className="text-gray-300 sm:text-xl ml-2">
+                      View More
+                    </span>
+                  </button>
+                </Link>
+              </motion.div>
             </motion.div>
           </div>
         </motion.div>
@@ -686,7 +695,7 @@ const menuItems = {
 
                 {/* Features Section */}
                 <motion.div
-                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mt-6 sm:mt-8 lg:mt-10"
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mb-16 sm:mt-8 lg:mt-10"
                   initial="hidden"
                   whileInView="visible"
                   transition={{ staggerChildren: 0.9 }}
@@ -942,7 +951,7 @@ const menuItems = {
             viewport={{ once: true }}
           >
             <h1 className="text-orange-500 text-xl font-mono font-semibold">
-              OUR
+              OUR BLOG
             </h1>
             <h3 className="text-4xl md:text-6xl mb-10 font-semibold text-white">
               Latest Post
@@ -957,21 +966,21 @@ const menuItems = {
               {[
                 {
                   image: fx19,
-                  date: "November 9, 2023",
+                  date: "January 9, 2025",
                   author: "Rose",
                   title: "New menu added. You can exchange your taste",
                 },
                 {
                   image: fx20,
-                  date: "November 9, 2023",
-                  author: "Rose",
+                  date: "November 29, 2024",
+                  author: "Abraham",
                   title:
                     "Explore our exciting menu updates for a new experience",
                 },
                 {
                   image: fx21,
-                  date: "November 9, 2023",
-                  author: "Rose",
+                  date: "July 1, 2024",
+                  author: "Shady",
                   title: "Discover our chef's specials crafted with love",
                 },
               ].map((post, index) => (
@@ -1085,9 +1094,11 @@ const menuItems = {
               viewport={{ once: true }}
             >
               Call for Reservation
-              <span className="text-orange-500 underline ml-2">
-                +234 905 576 5770
-              </span>
+              <a href="tel:+2349160002472">
+                <span className="text-orange-500 underline ml-2">
+                  +234 916 000 2472
+                </span>
+              </a>
             </motion.h3>
           </motion.div>
         </motion.div>

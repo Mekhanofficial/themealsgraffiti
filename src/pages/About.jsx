@@ -16,6 +16,7 @@ import Slider from "react-slick";
 import FooterPage from "../components/Footer";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function AboutPage() {
   const [showScrollToTop, setShowScrollToTop] = useState(false);
@@ -147,74 +148,77 @@ export default function AboutPage() {
           >
             <h1 className="font-bold text-white text-5xl">About Us</h1>
             <h3 className="text-orange-700 font-semibold text-xl mt-2">
-              HOME-ABOUT US
+              <Link to="/">HOME-</Link>ABOUT US
             </h3>
           </motion.div>
         </div>
 
-         <div
-                   className="relative px-5 sm:px-8 md:px-16 lg:px-20 flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12"
-                   style={{
-                     backgroundImage: `url(${fx5})`,
-                     backgroundSize: "cover",
-                     backgroundPosition: "center",
-                     backgroundRepeat: "no-repeat",
-                     minHeight: "100vh", // Keeps height consistent
-                     maxHeight: "100vh", // Prevents background from becoming too long
-                     color: "white",
-                     display: "flex",
-                     alignItems: "center", // Centers content vertically
-                   }}
-                 >
-                   {/* Image Section (Left Side) */}
-                   <motion.div
-                     className="w-full md:w-1/2 flex justify-center md:justify-start"
-                     initial={{ opacity: 0, x: -50 }}
-                     whileInView={{ opacity: 1, x: 0 }}
-                     viewport={{ once: true, amount: 0.5 }}
-                     transition={{ duration: 1, ease: "easeOut" }}
-                   >
-                     <img
-                       src={chef}
-                       alt="Restaurant Interior"
-                       className="w-full max-w-sm md:max-w-md lg:max-w-lg h-auto object-cover rounded-lg shadow-lg"
-                     />
-                   </motion.div>
-       
-                   {/* Text Section (Right Side) */}
-                   <motion.div
-                     className="w-full md:w-1/2 text-center md:text-left"
-                     initial={{ opacity: 0, x: 50 }}
-                     whileInView={{ opacity: 1, x: 0 }}
-                     viewport={{ once: true, amount: 0.5 }}
-                     transition={{ duration: 1, ease: "easeOut" }}
-                   >
-                     <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-4 text-orange-500 font-mono font-semibold">
-                       FRESH & TASTY FOOD
-                     </h2>
-                     <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white font-semibold mb-4">
-                       A Sophisticated and <br className="hidden md:block" />{" "}
-                       Traditional Cuisine
-                     </h1>
-                     <h3 className="text-sm sm:text-base md:text-lg lg:text-xl mb-4 text-gray-300 leading-relaxed">
-                       The Mealsgraffiti is one of the most popular Restaurants with a unique{" "}
-                       <br className="hidden md:block" />& special menu made by our
-                       passionate chefs with love and{" "}
-                       <br className="hidden md:block" />
-                       quality that can impress you.
-                     </h3>
-                     <h3 className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300">
-                       Call for Reservation
-                       <span className="text-orange-500 underline ml-2">
-                         +01234 567 891
-                       </span>
-                     </h3>
-                     <button className="border-2 border-gray-500 font-semibold mt-4 md:mt-8 p-2 md:p-3 w-full md:w-auto md:px-6 hover:bg-orange-500 hover:text-white transition duration-300 ease-in-out">
-                       View Full Menu
-                     </button>
-                   </motion.div>
-                 </div>
+        <div
+          className="relative px-5 sm:px-8 md:px-16 lg:px-20 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 "
+          style={{
+            backgroundImage: `url(${fx5})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            minHeight: "100vh", // Keeps height consistent
+            maxHeight: "100vh", // Prevents background from becoming too long
+            color: "white",
+          }}
+        >
+          {/* Image Section (Left Side) */}
+          <motion.div
+            className="w-full md:w-1/2 flex justify-center items-center"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <img
+              src={chef}
+              alt="Restaurant Interior"
+              className="w-full max-w-sm md:max-w-md lg:max-w-lg h-auto object-cover rounded-lg shadow-lg"
+            />
+          </motion.div>
 
+          {/* Text Section (Right Side) */}
+          <motion.div
+            className="w-full md:w-1/2 text-center md:text-left"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-4 text-orange-500 font-mono font-semibold">
+              FRESH FLAVORS, UNLIMITED POSSIBILITIES
+            </h2>
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white font-semibold mb-4">
+              Experience Culinary Excellence <br className="hidden md:block" />{" "}
+              and Timeless Tradition
+            </h1>
+            <h3 className="text-sm sm:text-base md:text-lg lg:text-xl mb-4 text-gray-300 leading-relaxed">
+              The Mealsgraffiti isn't just a restaurant; it's a celebration of
+              flavor <br className="hidden md:block" />
+              crafted by chefs who pour their soul into every dish. Bold,
+              inventive, and unforgettable.
+            </h3>
+            <h3 className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300">
+              Ready for a taste explosion?{" "}
+              <a
+                href="tel:+2349160002471"
+                className="text-orange-500 underline ml-2"
+              >
+                Call +01234 567 891 for Reservations
+              </a>
+            </h3>
+
+            {/* Button linking to the menu page */}
+            <Link to="/menu">
+              <button className="border-2 border-gray-500 font-semibold mt-4 md:mt-8 p-2 md:p-3 w-full md:w-auto md:px-6 hover:bg-orange-500 hover:text-white transition duration-300 ease-in-out">
+                Explore the Full Menu
+              </button>
+            </Link>
+          </motion.div>
+        </div>
         <div
           className="relative text-white font-semibold py-10"
           style={{

@@ -4,9 +4,7 @@ import logoskin from "../pictures/logoskin.png";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBell,
   faChevronDown,
-  faSpoon,
   faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -16,6 +14,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons/faFacebook";
 import { motion } from "framer-motion";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons/faWhatsapp";
 
 export default function HeaderPage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -49,22 +48,46 @@ export default function HeaderPage() {
           transition={{ duration: 1 }}
         >
           <div className="flex gap-7 mx-5 sm:mx-10 md:mx-20 ml-auto">
-            <FontAwesomeIcon
-              className="h-4 text-white sm:h-6 md:h-5"
-              icon={faFacebook}
-            />
-            <FontAwesomeIcon
-              className="h-4 text-white sm:h-6 md:h-5"
-              icon={faInstagram}
-            />
-            <FontAwesomeIcon
-              className="h-4 text-white sm:h-6 md:h-5"
-              icon={faTwitter}
-            />
-            <FontAwesomeIcon
-              className="h-4 text-white sm:h-6 md:h-5"
-              icon={faPinterest}
-            />
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon
+                className="h-4 text-white sm:h-6 md:h-5 hover:text-orange-500"
+                icon={faFacebook}
+              />
+            </a>
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon
+                className="h-4 text-white sm:h-6 md:h-5 hover:text-orange-500"
+                icon={faInstagram}
+              />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon
+                className="h-4 text-white sm:h-6 md:h-5 hover:text-orange-500"
+                icon={faTwitter}
+              />
+            </a>
+            <a
+              href="https://www.pinterest.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon
+                className="h-4 text-white sm:h-6 md:h-5 hover:text-orange-500"
+                icon={faPinterest}
+              />
+            </a>
           </div>
 
           <motion.div
@@ -73,12 +96,14 @@ export default function HeaderPage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            <FontAwesomeIcon
-              className="h-4 text-orange-500 sm:h-6 md:h-5"
-              icon={faBell}
-            />
-            <h1 className="text-xs sm:text-sm md:text-base">
-              Get 35% Discount for all foods till Dec 25
+            <a href="tel:+2349160002472">
+              <FontAwesomeIcon
+                className="h-4 text-orange-400 sm:h-6 md:h-5 hover:text-green-500" // Initially orange, hover to green
+                icon={faWhatsapp}
+              />
+            </a>
+            <h1 className="text-xs sm:text-sm md:text-base hover:text-green-500">
+              Hungry? Order now and satisfy your cravings
             </h1>
           </motion.div>
         </motion.div>
@@ -97,7 +122,7 @@ export default function HeaderPage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
           >
-            {/* Wrap the logo and text with a Link to make it clickable */}
+            {/* Wrap the logo and text with a Link to make it clickab */}
             <Link to="/" className="flex items-center">
               <img className="w-14 h-14" src={logoskin} alt="Logo" />
               <h1 className="text-2xl -ml-2 font-semibold">

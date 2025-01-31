@@ -45,26 +45,50 @@ export default function FooterPage() {
               <h1 className="text-2xl font-bold">Meals Graffiti</h1>
             </div>
             <p className="text-gray-200 text-sm lg:text-base">
-              Meals Graffiti is one of the most popular restaurants, offering a
-              special menu crafted by our passionate chefs.
+              The Mealsgraffiti is one of the most popular restaurants, offering
+              a special menu crafted by our passionate chefs.
             </p>
             <div className="flex gap-4">
-              <FontAwesomeIcon
-                className="h-6 text-orange-600 hover:text-orange-800"
-                icon={faFacebook}
-              />
-              <FontAwesomeIcon
-                className="h-6 text-orange-600 hover:text-orange-800"
-                icon={faInstagram}
-              />
-              <FontAwesomeIcon
-                className="h-6 text-orange-600 hover:text-orange-800"
-                icon={faTwitter}
-              />
-              <FontAwesomeIcon
-                className="h-6 text-orange-600 hover:text-orange-800"
-                icon={faPinterest}
-              />
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon
+                  className="h-6 text-orange-600 hover:text-orange-800"
+                  icon={faFacebook}
+                />
+              </a>
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon
+                  className="h-6 text-orange-600 hover:text-orange-800"
+                  icon={faInstagram}
+                />
+              </a>
+              <a
+                href="https://www.twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon
+                  className="h-6 text-orange-600 hover:text-orange-800"
+                  icon={faTwitter}
+                />
+              </a>
+              <a
+                href="https://www.pinterest.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon
+                  className="h-6 text-orange-600 hover:text-orange-800"
+                  icon={faPinterest}
+                />
+              </a>
             </div>
           </motion.div>
 
@@ -78,11 +102,40 @@ export default function FooterPage() {
           >
             <h2 className="font-bold text-white mb-2">Restaurant</h2>
             <ul className="space-y-2">
-              <li>About Us</li>
-              <li>Our Menu</li>
-              <li>Book a Table</li>
-              <li>Blog Post</li>
-              <li>Contact</li>
+              <li>
+                <a
+                  href="/About"
+                  className="text-gray-200 hover:text-orange-500"
+                >
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="/Menu" className="text-gray-200 hover:text-orange-500">
+                  Our Menu
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+2349160002472"
+                  className="text-gray-200 hover:text-orange-500"
+                >
+                  Book a Table
+                </a>
+              </li>
+              <li>
+                <a href="/blog" className="text-gray-200 hover:text-orange-500">
+                  Blog Post
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/contact"
+                  className="text-gray-200 hover:text-orange-500"
+                >
+                  Contact
+                </a>
+              </li>
             </ul>
           </motion.div>
 
@@ -95,11 +148,31 @@ export default function FooterPage() {
           >
             <h2 className="font-bold text-white mb-2">Information</h2>
             <ul className="space-y-2">
-              <li>Terms & Conditions</li>
-              <li>24/7 Service</li>
-              <li>Style Guide</li>
-              <li>Licenses</li>
-              <li>Change Log</li>
+              <li>
+                <a href="/" className="text-gray-200 hover:text-orange-500">
+                  Terms & Conditions
+                </a>
+              </li>
+              <li>
+                <a href="/" className="text-gray-200 hover:text-orange-500">
+                  24/7 Service
+                </a>
+              </li>
+              <li>
+                <a href="/" className="text-gray-200 hover:text-orange-500">
+                  Style Guide
+                </a>
+              </li>
+              <li>
+                <a href="/" className="text-gray-200 hover:text-orange-500">
+                  Licenses
+                </a>
+              </li>
+              <li>
+                <a href="/" className="text-gray-200 hover:text-orange-500">
+                  Change Log
+                </a>
+              </li>
             </ul>
           </motion.div>
 
@@ -112,10 +185,39 @@ export default function FooterPage() {
           >
             <h2 className="font-bold text-white mb-2">Contact</h2>
             <ul className="space-y-2">
-              <li>245 D, South City, Mixed Tower Main Town, New York, USA</li>
-              <li>info@examplesite.com</li>
-              <li>infoadmin@examplesite.com</li>
-              <li>+12345 678 910</li>
+              <li>
+                <a
+                  href="https://www.google.com/maps?q=245+D,+South+City,+Mixed+Tower+Main+Town,+New+York,+USA"
+                  className="text-gray-200 hover:text-orange-500"
+                >
+                  245 D, South City, Mixed Tower Main Town, New York, USA
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:Themealsgraffiti@gmail.com"
+                  className="text-gray-200 hover:text-orange-500"
+                >
+                  Themealsgraffiti@gmail.com
+                </a>
+              </li>
+
+              {/* <li>
+                <a
+                  href="mailto:infoadmin@examplesite.com"
+                  className="text-gray-200 hover:text-orange-500"
+                >
+                  infoadmin@examplesite.com
+                </a>
+              </li> */}
+              <li>
+                <a
+                  href="tel:+12345678910"
+                  className="text-gray-200 hover:text-orange-500"
+                >
+                  +12345 678 910
+                </a>
+              </li>
             </ul>
           </motion.div>
         </motion.section>
@@ -128,7 +230,10 @@ export default function FooterPage() {
           viewport={{ once: true }}
         >
           &copy; <span className="text-orange-700 font-bold">MekhanPro</span>.
-          All Rights Reserved - Privacy Policy
+          All Rights Reserved -
+          <a href="/privacy-policy" className="text-orange-500 hover:underline">
+            Privacy Policy
+          </a>
         </motion.h3>
       </motion.footer>
     </>

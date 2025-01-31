@@ -5,6 +5,7 @@ import fx22 from "../pictures/fx22.jpg";
 import blogpx from "../pictures/blogpx.jpg";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function ContactPage() {
   const [showScrollToTop, setShowScrollToTop] = useState(false);
@@ -93,7 +94,7 @@ export default function ContactPage() {
           >
             <h1 className="font-bold text-5xl text-white">Contact Us</h1>
             <h3 className="text-orange-700 font-semibold text-xl mt-2">
-              HOME-CONTACT US
+              <Link to="/">HOME-</Link>CONTACT US
             </h3>
           </motion.div>
         </div>
@@ -123,11 +124,29 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="text-orange-700 font-semibold">Call us</h4>
-                  <p>+12345 876 910</p>
+                  <a
+                    href="tel:+2349160002471"
+                    className="text-gray-200 hover:text-orange-500"
+                  >
+                    +2349160002471
+                  </a>
+                  <br />
+                  <a
+                    href="tel:+2349160002472"
+                    className="text-gray-200 hover:text-orange-500"
+                  >
+                    +2349160002472
+                  </a>
                 </div>
+
                 <div>
-                  <h4 className="text-orange-700 font-semibold">Email us</h4>
-                  <p>info@examplesite.com</p>
+                  <h4 className="text-orange-700 font-semibold">Email</h4>
+                  <a
+                    href="mailto:Themealsgraffiti@gmail.com"
+                    className="text-gray-200 hover:text-orange-500"
+                  >
+                    Themealsgraffiti@gmail.com
+                  </a>
                 </div>
               </div>
             </div>
@@ -302,9 +321,11 @@ export default function ContactPage() {
             </div>
             <p className="text-lg mt-4 text-white">
               Call for Reservation
-              <span className="text-orange-500 underline ml-2">
-                +234 905 576 5770
-              </span>
+              <a href="tel:+2349160002472">
+                <span className="text-orange-500 underline ml-2">
+                  +234 916 000 2472
+                </span>
+              </a>
             </p>
           </div>
         </div>

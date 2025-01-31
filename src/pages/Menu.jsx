@@ -41,6 +41,7 @@ import HeaderPage from "../components/Header";
 import FooterPage from "../components/Footer";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 export default function MenuPage() {
@@ -78,211 +79,212 @@ export default function MenuPage() {
     all: [
       {
         name: "White Rice & Stew",
-        price: "$13.00",
+        price: "#1000",
         description: "Steamed white rice served with spicy tomato stew",
         image: riceandstew,
       },
       {
         name: "Grilled Chicken",
-        price: "$12.00",
+        price: "#4000",
         description: "Juicy grilled chicken",
         image: grilledchicken,
       },
       {
         name: "Grilled Chicken Medium",
-        price: "$10.00",
+        price: "#3500",
         description: "Medium-sized grilled chicken",
         image: grilledchicmed,
       },
       {
-        name: "Grilled Turkey",
-        price: "$18.00",
-        description: "Flavorful grilled turkey",
-        image: grilledturkey,
-      },
-      {
         name: "Peppered Chicken",
-        price: "$14.00",
+        price: "#4000",
         description: "Spicy peppered chicken",
         image: pepperedchic,
       },
-      {
-        name: "Peppered Turkey",
-        price: "$16.00",
-        description: "Spicy peppered turkey",
-        image: pepperedturkey,
-      },
+
       {
         name: "Crispy Chicken",
-        price: "$14.50",
+        price: "#3000",
         description: "Crunchy fried crispy chicken",
         image: crispychic,
       },
       {
         name: "Plantain",
-        price: "$6.00",
+        price: "#1000",
         description: "Fried sweet plantains",
         image: dodo,
       },
       {
         name: "Stewed Beef",
-        price: "$12.00",
+        price: "#1500",
         description: "Beef cooked in rich tomato sauce",
         image: stewedbeef,
       },
       {
         name: "Moi Moi",
-        price: "$7.00",
+        price: "#1000",
         description: "Steamed bean pudding",
         image: moi,
       },
       {
         name: "Banana Bread",
-        price: "$8.00",
+        price: "#2500",
         description: "Moist homemade banana bread",
         image: bananabread,
       },
       {
         name: "Banana Bread Medium",
-        price: "$6.50",
+        price: "#2000",
         description: "Medium-sized banana bread",
         image: bananabmed,
       },
       {
         name: "Meat Pie",
-        price: "$5.50",
+        price: "#1000",
         description: "Flaky pastry stuffed with minced meat",
         image: meatpie,
       },
       {
         name: "Chicken Pie",
-        price: "$6.00",
+        price: "#1200",
         description: "Pastry filled with seasoned chicken",
         image: chickenpie,
       },
       {
         name: "Jam Doughnuts",
-        price: "$4.00",
+        price: "#700",
         description: "Soft doughnuts filled with jam",
         image: jamdou,
       },
       {
         name: "Sausage",
-        price: "$3.50",
+        price: "#1000",
         description: "Savory sausage snack",
         image: sausage,
       },
       {
         name: "Chicken Sandwich",
-        price: "$9.00",
+        price: "#2000",
         description: "Grilled chicken sandwich with lettuce and mayo",
         image: chickensandwich,
       },
       {
         name: "Burgers",
-        price: "$12.00",
+        price: "#5000",
         description: "Juicy beef or chicken burger",
         image: burgers,
       },
       {
         name: "Long Bun Chicken Sandwich",
-        price: "$10.50",
+        price: "#3000",
         description: "Long bun sandwich with crispy chicken",
         image: longbun,
       },
       {
         name: "Peppered Beef",
-        price: "$13.50",
+        price: "#1500",
         description: "Spicy beef chunks",
         image: pepperedbeef,
       },
       {
         name: "Peppered Snail",
-        price: "$25.00",
+        price: "#5000",
         description: "Delicacy of spicy cooked snails",
         image: pepperedsnail,
       },
       {
         name: "Peppered Fried Crocker Fish",
-        price: "$22.00",
+        price: "#4000",
         description: "Spicy deep-fried crocker fish",
         image: croaker,
       },
       {
         name: "Peppered Fried Hake Fish",
-        price: "$20.00",
+        price: "#4000",
         description: "Crispy fried hake fish with pepper sauce",
         image: hakefish,
       },
       {
         name: "Party Jollof Rice",
-        price: "$15.00",
+        price: "#1000",
         description: "Classic Nigerian party jollof rice",
         image: jollof,
       },
       {
         name: "Pineapple Shrimps Fried Rice",
-        price: "$18.00",
+        price: "#2500",
         description: "Fried rice with shrimp and pineapple",
         image: pineshrimprice,
       },
       {
         name: "Jambalaya Rice",
-        price: "$20.00",
+        price: "#2200",
         description: "Spicy Creole rice with seafood and sausage",
         image: jambalayarice,
       },
       {
+        name: "Grilled Turkey",
+        price: "#5000",
+        description: "Flavorful grilled turkey",
+        // image: grilledturkey,
+      },
+      {
         name: "Plain Fried Rice",
-        price: "$12.00",
+        price: "#1000",
         description: "Simple fried rice with vegetables",
         image: plainfried,
       },
       {
         name: "Suya Rice",
-        price: "$16.00",
+        price: "#1800",
         description: "Spiced suya-flavored rice with beef",
-        image: suyarice,
+        // image: suyarice,
       },
       {
         name: "Special Shrimps Fried Rice",
-        price: "$22.00",
+        price: "#2000",
         description: "Deluxe fried rice with jumbo shrimp",
         image: shrimpfriedrice,
       },
       {
         name: "Asun Coconut Rice",
-        price: "$19.00",
+        price: "#1700",
         description: "Coconut rice with spicy goat meat (asun)",
         image: coconutrice,
       },
       {
         name: "Chinese Rice",
-        price: "$14.50",
+        price: "#1500",
         description: "Authentic Chinese-style fried rice",
         image: chineserice,
       },
       {
         name: "Assorted Meat",
-        price: "$17.50",
+        price: "#1500",
         description: "Variety of spicy meats",
-        image: assortedmeat,
+        // image: assortedmeat,
       },
       {
         name: "Stewed Titus",
-        price: "$19.00",
+        price: "#3000",
         description: "Titus fish cooked in tomato stew",
         image: stewedtitus,
       },
       {
         name: "Coleslaw",
-        price: "$5.00",
+        price: "#1000",
         description: "Creamy coleslaw salad",
         image: coleslaw,
       },
       {
+        name: "Peppered Turkey",
+        price: "#5000",
+        description: "Spicy peppered turkey",
+        // image: pepperedturkey,
+      },
+      {
         name: "Chocolate & Vanilla Cookies",
-        price: "$6.00",
+        price: "#500",
         description: "Freshly baked chocolate and vanilla cookies",
         image: chocolatevan,
       },
@@ -290,210 +292,256 @@ export default function MenuPage() {
     breakfast: [
       {
         name: "Banana Bread",
-        price: "$8.99",
+        price: "#2500",
         description:
           "Freshly baked banana bread, soft and delicious with a hint of sweetness.",
+        image: bananabread,
       },
       {
         name: "Banana Bread Medium",
-        price: "$10.50",
+        price: "#2000",
         description:
           "A larger portion of our signature banana bread, perfect for sharing.",
+        image: bananabmed,
       },
       {
         name: "Jam Doughnuts",
-        price: "$4.99",
+        price: "#700",
         description:
           "Soft, fluffy doughnuts filled with sweet fruit jam, perfect for a quick snack.",
+        image: jamdou,
       },
       {
         name: "Chocolate x Vanilla Cookies",
-        price: "$6.50",
+        price: "#500",
         description:
           "A decadent mix of chocolate and vanilla cookies, chewy and rich in flavor.",
+        image: chocolatevan,
       },
       {
         name: "Chicken Sandwich",
-        price: "$9.99",
+        price: "#2000",
         description:
           "A crispy chicken fillet served with fresh lettuce, tomato, and mayo in a soft bun.",
+        image: chickensandwich,
       },
       {
         name: "Long Bun Chicken Sandwich",
-        price: "$12.00",
+        price: "#3000",
         description:
           "A juicy, crispy chicken fillet served in a long, soft bun with all the toppings.",
+        image: longbun,
       },
       {
         name: "Party Jollof Rice",
-        price: "$15.99",
+        price: "#1000",
         description:
           "A hearty serving of flavorful Jollof rice, perfect for sharing at parties.",
+        image: jollof,
       },
       {
         name: "Plain Fried Rice",
-        price: "$14.99",
+        price: "#1000",
         description:
           "A simple yet delicious fried rice made with fresh vegetables and seasoned to perfection.",
+        image: plainfried,
       },
       {
         name: "Plantain",
-        price: "$6.50",
+        price: "#1000",
         description:
           "Golden fried plantain slices, crispy on the outside and tender on the inside.",
+        image: dodo,
       },
       {
         name: "Stewed Beef",
-        price: "$9.99",
+        price: "#1500",
         description:
           "Tender beef stewed in a rich, flavorful sauce, served hot and juicy.",
+        image: stewedbeef,
       },
       {
         name: "Peppered Chicken",
-        price: "$11.50",
+        price: "#4000",
         description:
           "Spicy grilled chicken seasoned with peppers and herbs, served with a kick.",
+        image: pepperedchic,
       },
       {
         name: "Peppered Beef",
-        price: "$10.50",
+        price: "#1500",
         description:
           "Tender beef cooked in a spicy pepper sauce, packed with flavor.",
+        image: pepperedbeef,
       },
       {
         name: "Burgers",
-        price: "$11.50",
+        price: "#5000",
         description:
           "Juicy beef burger served with lettuce, tomato, and a special sauce.",
+        image: burgers,
       },
     ],
     brunch: [
       {
         name: "Meat Pie",
-        price: "$5.99",
+        price: "#1000",
         description:
           "Flaky pastry filled with a savory mix of seasoned meat and vegetables.",
+        image: meatpie,
       },
       {
         name: "Chicken Pie",
-        price: "$6.50",
+        price: "#1200",
         description:
           "Flaky pastry filled with tender chicken and a rich, creamy filling.",
+        image: chickenpie,
       },
       {
         name: "Chicken Sandwich",
-        price: "$9.99",
+        price: "#2000",
         description:
           "A crispy chicken sandwich served with lettuce, tomato, and mayo.",
+        image: chickensandwich,
       },
       {
         name: "Long Bun Chicken Sandwich",
-        price: "$12.00",
+        price: "#3000",
         description:
           "A juicy chicken fillet served in a long bun, with fresh toppings and a savory sauce.",
+        image: longbun,
       },
     ],
     lunch: [
       {
         name: "Party Jollof Rice",
-        price: "$15.99",
+        price: "#1000",
         description:
           "A rich and flavorful Jollof rice, cooked to perfection and perfect for lunch gatherings.",
+        image: jollof,
+      },
+      {
+        name: "Assorted Meat",
+        price: "#1500",
+        description: "Variety of spicy meats",
+        // image: assortedmeat,
       },
       {
         name: "Pineapple Shrimps Fried Rice",
-        price: "$18.50",
+        price: "#2500",
         description:
           "A delightful mix of shrimps, fried rice, and tangy pineapple chunks.",
+        image: pineshrimprice,
       },
       {
         name: "Jambalaya Rice",
-        price: "$17.00",
+        price: "#2200",
         description:
           "A spiced rice dish with a mix of chicken, sausage, and shrimp, all cooked together.",
+        image: jambalayarice,
       },
       {
         name: "Plain Fried Rice",
-        price: "$14.99",
+        price: "#1000",
         description:
           "Delicious fried rice made with fresh ingredients, lightly seasoned for a satisfying meal.",
+        image: plainfried,
       },
       {
         name: "Suya Rice",
-        price: "$16.99",
+        price: "#1800",
         description:
           "Fragrant rice served with spiced beef, grilled to perfection.",
+        image: suyarice,
       },
       {
         name: "Special Shrimps Fried Rice",
-        price: "$19.50",
+        price: "#2000",
         description:
           "Shrimps fried rice, a seasonal favorite with an extra dose of flavor.",
+        image: shrimpfriedrice,
       },
       {
         name: "Asun Coconut Rice",
-        price: "$18.75",
+        price: "#1700",
         description:
           "A fusion of coconut rice served with tender grilled beef, perfect for a tropical touch.",
+        image: coconutrice,
       },
       {
         name: "White Rice x Stew",
-        price: "$13.99",
+        price: "#1000",
         description:
           "Simple and classic white rice served with a rich, flavorful stew.",
+        image: riceandstew,
       },
       {
         name: "Coleslaw",
-        price: "$5.99",
+        price: "#1000",
         description:
           "A refreshing side of creamy coleslaw, perfect to balance any meal.",
+        image: coleslaw,
       },
       {
         name: "Chinese Rice",
-        price: "$15.50",
+        price: "#1500",
         description:
           "A chef's special fried rice, packed with vegetables and seasoned with authentic Chinese spices.",
+        image: chineserice,
       },
     ],
     dinner: [
       {
         name: "Stewed Beef",
-        price: "$12.00",
+        price: "#1500",
         description:
           "Tender beef cooked in a rich tomato sauce, a perfect dinner option.",
+        image: stewedbeef,
+      },
+      {
+        name: "Peppered Turkey",
+        price: "#5000",
+        description: "Spicy peppered turkey",
+        // image: pepperedturkey,
       },
       {
         name: "Grilled Chicken",
-        price: "$14.50",
+        price: "#4000",
         description:
           "Grilled chicken seasoned with fresh herbs and spices, served with a side of vegetables.",
+        image: grilledchicken,
       },
       {
         name: "Grilled Turkey",
-        price: "$16.00",
+        price: "#5000",
         description:
           "Juicy grilled turkey, marinated in a blend of spices and served with mashed potatoes.",
+        // image: grilledturkey,
       },
       {
         name: "Crispy Chicken",
-        price: "$15.00",
+        price: "#3000",
         description:
           "Crispy fried chicken served with your choice of dipping sauce.",
+        image: crispychic,
       },
       {
         name: "Peppered Snail",
-        price: "$25.00",
+        price: "#5000",
         description:
           "A delicacy of spicy cooked snails, a perfect dinner choice for seafood lovers.",
+        image: pepperedsnail,
       },
       {
         name: "Peppered Fried Fish",
-        price: "$20.00",
+        price: "#4000",
         description:
           "A flavorful fried fish, topped with spicy pepper sauce for an extra kick.",
+        image: croaker,
       },
     ],
   };
+
 
   const totalPages = Math.ceil(menuItems[selectedMenu].length / itemsPerPage);
   const paginatedItems = menuItems[selectedMenu].slice(
@@ -540,7 +588,7 @@ export default function MenuPage() {
              Our Menu
            </h1>
            <h3 className="text-orange-700 font-semibold text-xl mt-2">
-             HOME-MENU
+             <Link to="/">HOME-</Link>
            </h3>
          </motion.div>
        </div>
@@ -632,7 +680,7 @@ export default function MenuPage() {
                    href="https://wa.me/2349055765770" // Link to WhatsApp chat
                    target="_blank"
                    rel="noopener noreferrer"
-                   className="absolute bottom-4 right-4 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition duration-300"
+                   className="absolute bottom-4 right-4 bg-orange-500 text-white p-2 rounded-full shadow-lg hover:bg-green-600 transition duration-300"
                  >
                    <FontAwesomeIcon icon={faWhatsapp} className="text-xl" />
                  </a>
