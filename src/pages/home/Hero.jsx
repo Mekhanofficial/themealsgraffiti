@@ -62,7 +62,7 @@ export default function HomeHeroSection() {
 
   const slides = [
     {
-      title: "SAVOR THE FLAVOR",
+      title: "TASTE THE ARTISTRY",
       subtitle: "Bold, Unforgettable Tastes",
       description:
         "Delight in expertly crafted dishes that transport you to a world of exquisite flavor.",
