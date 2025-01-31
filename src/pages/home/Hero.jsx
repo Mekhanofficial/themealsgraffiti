@@ -18,9 +18,8 @@ import fx12 from "../../pictures/fx12.jpg";
 import fx13 from "../../pictures/fx13.jpg";
 import homeMenuChef from "../../pictures/homeMenuChef.jpg";
 import fx14 from "../../pictures/fx14.jpg";
-import fx15 from "../../pictures/fx15.png";
+import rotatepx from "../../pictures/rotatepx.png";
 import fx16 from "../../pictures/fx16.jpg";
-import px22 from "../../pictures/px22.jpg";
 import px23 from "../../pictures/px23.jpg";
 import px28 from "../../pictures/px28.jpg";
 import fx20 from "../../pictures/fx20.jpg";
@@ -379,6 +378,7 @@ const menuItems = {
           <div className="relative h-screen">
             {/* Background Image */}
             <img
+              
               className="absolute inset-0 w-full h-full object-cover z-[-2]"
               src={gbg2}
               alt="Background image showcasing a restaurant or food ambiance"
@@ -690,7 +690,7 @@ const menuItems = {
                   >
                     <img
                       className="mt-6 sm:mt-8 lg:mt-0 max-w-[150px] sm:max-w-[200px] lg:max-w-[250px] h-auto object-contain"
-                      src={fx15}
+                      src={rotatepx}
                       alt="Rotating Image"
                     />
                   </motion.div>

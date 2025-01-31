@@ -8,7 +8,8 @@ import {
   faTwitter,
   faFacebook,
 } from "@fortawesome/free-brands-svg-icons";
-import { motion } from "framer-motion"; // Import motion
+import { motion } from "framer-motion"; 
+import { Link } from "react-router-dom";
 
 export default function FooterPage() {
   return (
@@ -108,42 +109,47 @@ export default function FooterPage() {
             <h2 className="font-bold text-xl text-white mb-2">Restaurant</h2>
             <ul className="space-y-2 font-semibold">
               <li>
-                <a
-                  href="/About"
+                <Link
+                  to="/About"
                   className="text-gray-200 hover:text-orange-500"
                 >
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/Menu" className="text-gray-200 hover:text-orange-500">
+                <Link
+                  to="/Menu"
+                  className="text-gray-200 hover:text-orange-500"
+                >
                   Our Menu
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="tel:+2349160002472"
+                <Link
+                  to="tel:+2349160002472"
                   className="text-gray-200 hover:text-orange-500"
                 >
                   Book a Table
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/blog" className="text-gray-200 hover:text-orange-500">
+                <Link
+                  to="/blog"
+                  className="text-gray-200 hover:text-orange-500"
+                >
                   Blog Post
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/contact"
+                <Link
+                  to="/contact"
                   className="text-gray-200 hover:text-orange-500"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </motion.div>
-
           <motion.div
             className="w-full lg:w-1/4 text-sm lg:text-base text-left"
             initial={{ opacity: 0, y: -20 }}
