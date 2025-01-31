@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import fx21 from "../pictures/fx21.jpg";
+import logoskin from "../pictures/logoskin.png";
 import { faSpoon } from "@fortawesome/free-solid-svg-icons";
 import {
   faInstagram,
@@ -41,10 +42,14 @@ export default function FooterPage() {
             viewport={{ once: true }}
           >
             <div className="flex items-center gap-2">
-              <FontAwesomeIcon className="h-6 text-orange-500" icon={faSpoon} />
-              <h1 className="text-2xl font-bold">Meals Graffiti</h1>
+              <img className="w-14 h-14 " src={logoskin} alt="Logo" />
+              <h1 className="text-2xl -ml-2 font-semibold">
+                <span className="text-purple-600">Meal</span>
+                <span className="text-orange-400">sGraff</span>
+                <span className="text-yellow-400">iti</span>
+              </h1>
             </div>
-            <p className="text-gray-200 text-sm lg:text-base">
+            <p className="text-gray-200 text-sm lg:text-base font-semibold">
               The Mealsgraffiti is one of the most popular restaurants, offering
               a special menu crafted by our passionate chefs.
             </p>
@@ -100,8 +105,8 @@ export default function FooterPage() {
             transition={{ duration: 1, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-bold text-white mb-2">Restaurant</h2>
-            <ul className="space-y-2">
+            <h2 className="font-bold text-xl text-white mb-2">Restaurant</h2>
+            <ul className="space-y-2 font-semibold">
               <li>
                 <a
                   href="/About"
@@ -146,8 +151,8 @@ export default function FooterPage() {
             transition={{ duration: 1, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-bold text-white mb-2">Information</h2>
-            <ul className="space-y-2">
+            <h2 className="font-bold text-xl text-white mb-2">Information</h2>
+            <ul className="space-y-2 font-semibold">
               <li>
                 <a href="/" className="text-gray-200 hover:text-orange-500">
                   Terms & Conditions
@@ -183,8 +188,8 @@ export default function FooterPage() {
             transition={{ duration: 1, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-bold text-white mb-2">Contact</h2>
-            <ul className="space-y-2">
+            <h2 className="font-bold text-xl text-white mb-2">Contact</h2>
+            <ul className="space-y-2 font-semibold">
               <li>
                 <a
                   href="https://www.google.com/maps?q=245+D,+South+City,+Mixed+Tower+Main+Town,+New+York,+USA"
@@ -212,10 +217,10 @@ export default function FooterPage() {
               </li> */}
               <li>
                 <a
-                  href="tel:+12345678910"
+                  href="tel:+2349160002471"
                   className="text-gray-200 hover:text-orange-500"
                 >
-                  +12345 678 910
+                  +2349160002471
                 </a>
               </li>
             </ul>
@@ -229,7 +234,7 @@ export default function FooterPage() {
           transition={{ duration: 1, delay: 0.8 }}
           viewport={{ once: true }}
         >
-          &copy; <span className="text-orange-700 font-bold">MekhanPro</span>.
+          &copy; <span className="text-orange-700 font-bold">Mealsgraffiti</span>.
           All Rights Reserved -
           <a href="/privacy-policy" className="text-orange-500 hover:underline">
             Privacy Policy

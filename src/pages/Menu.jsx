@@ -193,9 +193,9 @@ export default function MenuPage() {
         image: pepperedsnail,
       },
       {
-        name: "Peppered Fried Crocker Fish",
+        name: "Peppered Fried Croaker Fish",
         price: "#4000",
-        description: "Spicy deep-fried crocker fish",
+        description: "Spicy deep-fried croaker fish",
         image: croaker,
       },
       {
@@ -588,7 +588,7 @@ export default function MenuPage() {
              Our Menu
            </h1>
            <h3 className="text-orange-700 font-semibold text-xl mt-2">
-             <Link to="/">HOME-</Link>
+             <Link to="/">HOME-</Link>MENU
            </h3>
          </motion.div>
        </div>
@@ -677,7 +677,7 @@ export default function MenuPage() {
 
                  {/* WhatsApp Button next to price */}
                  <a
-                   href="https://wa.me/2349055765770" // Link to WhatsApp chat
+                   href="https://wa.me/2349160002471" // Link to WhatsApp chat
                    target="_blank"
                    rel="noopener noreferrer"
                    className="absolute bottom-4 right-4 bg-orange-500 text-white p-2 rounded-full shadow-lg hover:bg-green-600 transition duration-300"
@@ -748,9 +748,11 @@ export default function MenuPage() {
            </div>
            <h3 className="text-lg md:text-xl mt-4 text-white">
              Call for Reservation
-             <span className="text-orange-500 underline ml-2">
-               +234 905 576 5770
-             </span>
+             <a href="tel:+2349160002472">
+               <span className="text-orange-500 underline ml-2">
+                 +234 916 000 2472
+               </span>
+             </a>
            </h3>
          </motion.div>
        </div>

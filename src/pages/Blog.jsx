@@ -6,12 +6,13 @@ import HeaderPage from "../components/Header";
 import FooterPage from "../components/Footer";
 import { motion } from "framer-motion";
 import px23 from "../pictures/px23.jpg";
-import fx19 from "../pictures/fx19.jpg";
+import fx28 from "../pictures/fx28.jpg";
 import fx21 from "../pictures/fx21.jpg";
 import fx20 from "../pictures/fx20.jpg";
 import fx22 from "../pictures/fx22.jpg";
 import dx3 from "../pictures/dx3.jpg";
-import gbg2 from "../pictures/gbg2.jpg";
+import fx26 from "../pictures/fx26.jpg";
+import px28 from "../pictures/px28.jpg";
 
 export default function BlogPage() {
   const [showScrollToTop, setShowScrollToTop] = useState(false);
@@ -40,39 +41,39 @@ export default function BlogPage() {
   // Blog posts array with additional posts
   const blogPosts = [
     {
-      image: fx19,
-      date: "November 9, 2023",
+      image: px28,
+      date: "January 9, 2025",
       author: "Rose",
       title: "New menu added. You can exchange your taste",
     },
     {
       image: fx20,
-      date: "November 9, 2023",
-      author: "Rose",
+      date: "November 29, 2024",
+      author: "Abraham",
       title: "Explore our exciting menu updates for a new experience",
     },
     {
-      image: fx21,
-      date: "November 9, 2023",
-      author: "Rose",
+      image: px23,
+      date: "July 1, 2024",
+      author: "Shady",
       title: "Discover our chef's specials crafted with love",
     },
     // New blog posts
     {
-      image: fx22,
-      date: "December 10, 2023",
+      image: fx26,
+      date: "December 10, 2024",
       author: "John",
       title: "Introducing our seasonal menu:taste of winter warmth",
     },
     {
-      image: gbg2,
-      date: "December 15, 2023",
+      image: fx21,
+      date: "August 15, 2023",
       author: "Emily",
       title: "How our chefs are inspired by local flavors",
     },
     {
-      image: px23,
-      date: "January 5, 2024",
+      image: fx28,
+      date: "January 5, 2025",
       author: "Alex",
       title: "Behind the scenes: A day in the life of a chef",
     },

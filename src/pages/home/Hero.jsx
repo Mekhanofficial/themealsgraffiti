@@ -16,10 +16,13 @@ import fx10 from "../../pictures/fx10.jpg";
 import fx11 from "../../pictures/fx11.jpg";
 import fx12 from "../../pictures/fx12.jpg";
 import fx13 from "../../pictures/fx13.jpg";
+import homeMenuChef from "../../pictures/homeMenuChef.jpg";
 import fx14 from "../../pictures/fx14.jpg";
 import fx15 from "../../pictures/fx15.png";
 import fx16 from "../../pictures/fx16.jpg";
-import fx19 from "../../pictures/fx19.jpg";
+import px22 from "../../pictures/px22.jpg";
+import px23 from "../../pictures/px23.jpg";
+import px28 from "../../pictures/px28.jpg";
 import fx20 from "../../pictures/fx20.jpg";
 import fx21 from "../../pictures/fx21.jpg";
 import fx22 from "../../pictures/fx22.jpg";
@@ -283,7 +286,7 @@ const menuItems = {
   const getMenuImage = () => {
     switch (selectedMenu) {
       case "breakfast":
-        return fx11;
+        return homeMenuChef;
       case "brunch":
         return fx11;
       case "lunch":
@@ -788,9 +791,11 @@ const menuItems = {
                 transition={{ duration: 1, delay: 0.4 }}
               >
                 Call for Reservation
-                <span className="text-orange-500 underline ml-2">
-                  +234 905 576 5770
-                </span>
+                <a href="tel:+2349160002472">
+                  <span className="text-orange-500 underline ml-2">
+                    +234 916 000 2472
+                  </span>
+                </a>
               </motion.h3>
               <motion.div
                 className="mt-10"
@@ -802,23 +807,25 @@ const menuItems = {
                 <div className="space-y-2">
                   <div className="flex justify-between text-lg lg:text-xl">
                     <h2>Monday - Saturday</h2>
-                    <h2>7.30 am - 11.30 pm</h2>
+                    <h2>8.00 am - 11.00 pm</h2>
                   </div>
                   <div className="flex justify-between text-lg lg:text-xl">
                     <h2>Sunday</h2>
-                    <h2>7.30 am - 11.30 pm</h2>
+                    <h2>8.00 am - 11.00 pm</h2>
                   </div>
                   <div className="flex justify-between text-lg lg:text-xl">
                     <h2 className="text-orange-500">Happy Hour</h2>
                     <h2>5.30 pm - 09.00 pm</h2>
                   </div>
                 </div>
-                <motion.button
-                  className="border-x-2 border-gray-500 font-semibold mt-10 p-2 w-44 hover:bg-orange-500 hover:text-white transition duration-300"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  Book a Table
-                </motion.button>
+                <a href="tel:+2349160002471">
+                  <motion.button
+                    className="border-x-2 border-gray-500 font-semibold mt-10 p-2 w-44 hover:bg-orange-500 hover:text-white transition duration-300"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    Book a Table
+                  </motion.button>
+                </a>
               </motion.div>
             </div>
           </motion.div>
@@ -965,7 +972,7 @@ const menuItems = {
             >
               {[
                 {
-                  image: fx19,
+                  image: px28,
                   date: "January 9, 2025",
                   author: "Rose",
                   title: "New menu added. You can exchange your taste",
@@ -978,7 +985,7 @@ const menuItems = {
                     "Explore our exciting menu updates for a new experience",
                 },
                 {
-                  image: fx21,
+                  image: px23,
                   date: "July 1, 2024",
                   author: "Shady",
                   title: "Discover our chef's specials crafted with love",
@@ -1108,7 +1115,7 @@ const menuItems = {
       {showScrollToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-4 right-4 bg-orange-500 text-white p-3 w-10 rounded-full shadow-lg hover:bg-orange-600 transition duration-300"
+          className="fixed bottom-4 right-4 z-10 bg-orange-500 text-white p-3 w-10 rounded-full shadow-lg hover:bg-orange-600 transition duration-300"
         >
           ↑
         </button>
