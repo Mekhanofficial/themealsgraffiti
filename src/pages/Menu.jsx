@@ -90,7 +90,7 @@ export default function MenuPage() {
         image: grilledchicken,
       },
       {
-        name: "Special Shrimps Fried Rice",
+        name: "Special Shrimps FriedRice",
         price: "#2000",
         description: "Deluxe fried rice with jumbo shrimp",
         image: shrimpfriedrice,
@@ -455,7 +455,7 @@ export default function MenuPage() {
         image: suyarice,
       },
       {
-        name: "Special Shrimps Fried Rice",
+        name: "Special Shrimps FriedRice",
         price: "#2000",
         description:
           "Shrimps fried rice, a seasonal favorite with an extra dose of flavor.",
