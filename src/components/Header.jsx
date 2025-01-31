@@ -59,7 +59,7 @@ export default function HeaderPage() {
               />
             </a>
             <a
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/themealsgraffiti"
               target="_blank"
               rel="noopener noreferrer"
             >

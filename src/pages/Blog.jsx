@@ -192,48 +192,50 @@ export default function BlogPage() {
         </motion.div>
 
         {/* Newsletter Section */}
-        <div className="flex flex-col md:flex-row relative z-10 bg-zinc-900">
-          <motion.img
-            className="w-full md:w-1/2 h-48 md:h-72"
-            src={fx22}
-            alt="Newsletter Background"
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-          />
-          <motion.div
-            className="w-full md:w-1/2 bg-zinc-950 text-center p-4 md:p-6"
-            initial={{ opacity: 0, x: 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <h2 className="text-orange-500 text-lg md:text-2xl font-mono font-semibold mb-3">
-              NEWSLETTER
-            </h2>
-            <h1 className="text-2xl md:text-4xl font-bold text-white mb-3">
-              Subscribe to Our Newsletter
-            </h1>
-            <h3 className="text-sm md:text-lg text-white mb-4">
-              To get the latest updates, offers, and promotions
-            </h3>
-            <div className="flex flex-col md:flex-row items-center justify-center">
-              <input
-                className="w-full md:w-3/4 p-3 bg-transparent border-2 border-zinc-600 text-white placeholder-zinc-400 mb-4 md:mb-0 md:mr-4"
-                type="email"
-                placeholder="Enter your email"
-              />
-              <button className="w-full md:w-auto px-5 py-2 text-zinc-800 font-semibold bg-white hover:bg-orange-500 hover:text-white transition">
-                Subscribe
-              </button>
-            </div>
-            <h3 className="text-lg md:text-xl mt-4 text-white">
-              Call for Reservation
-              <span className="text-orange-500 underline ml-2">
-                +234 905 576 5770
-              </span>
-            </h3>
-          </motion.div>
-        </div>
+       <div className="flex flex-col md:flex-row relative z-10 bg-zinc-900">
+                <motion.img
+                  className="w-full md:w-1/2 h-48 md:h-72"
+                  src={fx22}
+                  alt="Newsletter Background"
+                  initial={{ opacity: 0, x: -100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1 }}
+                />
+                <motion.div
+                  className="w-full md:w-1/2 bg-zinc-950 text-center p-4 md:p-6"
+                  initial={{ opacity: 0, x: 100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1 }}
+                >
+                  <h2 className="text-orange-500 text-lg md:text-2xl font-mono font-semibold mb-3">
+                    NEWSLETTER
+                  </h2>
+                  <h1 className="text-2xl md:text-4xl font-bold text-white mb-3">
+                    Subscribe to Our Newsletter
+                  </h1>
+                  <h3 className="text-sm md:text-lg text-white mb-4">
+                    To get the latest updates, offers, and promotions
+                  </h3>
+                  <div className="flex flex-col md:flex-row items-center justify-center">
+                    <input
+                      className="w-full md:w-3/4 p-3 bg-transparent border-2 border-zinc-600 text-white placeholder-zinc-400 mb-4 md:mb-0 md:mr-4"
+                      type="email"
+                      placeholder="Enter your email"
+                    />
+                    <button className="w-full md:w-auto px-5 py-2 text-zinc-800 font-semibold bg-white hover:bg-orange-500 hover:text-white transition">
+                      Subscribe
+                    </button>
+                  </div>
+                  <h3 className="text-lg md:text-xl mt-4 text-white">
+                    Call for Reservation
+                    <a href="tel:+2349160002472">
+                      <span className="text-orange-500 underline ml-2">
+                        +234 916 000 2472
+                      </span>
+                    </a>
+                  </h3>
+                </motion.div>
+              </div>
       </section>
 
       <FooterPage />

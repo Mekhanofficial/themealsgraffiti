@@ -192,10 +192,13 @@ export default function FooterPage() {
             <ul className="space-y-2 font-semibold">
               <li>
                 <a
-                  href="https://www.google.com/maps?q=245+D,+South+City,+Mixed+Tower+Main+Town,+New+York,+USA"
+                  href="https://www.google.com/maps?q=2+Aro+Ologolo+Rd,+Lekki+Peninsula+II,+Lagos+106104,+Nigeria"
                   className="text-gray-200 hover:text-orange-500"
+                  target="_blank" // This makes the link open in a new tab
+                  rel="noopener noreferrer" // Security best practice when using target="_blank"
                 >
-                  245 D, South City, Mixed Tower Main Town, New York, USA
+                  2 Aro Ologolo Rd, Lekki Peninsula II, Lagos 106104, Lagos,
+                  Nigeria
                 </a>
               </li>
               <li>
@@ -234,8 +237,9 @@ export default function FooterPage() {
           transition={{ duration: 1, delay: 0.8 }}
           viewport={{ once: true }}
         >
-          &copy; <span className="text-orange-700 font-bold">Mealsgraffiti</span>.
-          All Rights Reserved -
+          &copy;{" "}
+          <span className="text-orange-700 font-bold">Mealsgraffiti</span>. All
+          Rights Reserved -
           <a href="/privacy-policy" className="text-orange-500 hover:underline">
             Privacy Policy
           </a>

@@ -1,4 +1,5 @@
 import HeaderPage from "../components/Header";
+import bg from "../pictures/bg.jpg";
 import dp1 from "../pictures/dp1.jpg";
 import dp2 from "../pictures/dp2.jpg";
 import dp3 from "../pictures/dp3.jpg";
@@ -7,6 +8,7 @@ import dp5 from "../pictures/dp5.jpg";
 import dp6 from "../pictures/dp6.jpg";
 import fx5 from "../pictures/fx5.jpg";
 import fx1 from "../pictures/bg.jpg";
+import fx22 from "../pictures/fx22.jpg";
 import px21 from "../pictures/px21.jpg";
 import chef from "../pictures/chef.png";
 import quote from "../pictures/quote.png";
@@ -46,51 +48,51 @@ export default function AboutPage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const testimonials = [
-    {
-      text: "The Mealsgraffiti is my go-to place for celebrating special occasions. Their food is always delightful.",
-      name: "Maichel Williamson",
-      position: "CTO, Morlex Group",
-      image: dp1,
-      rightImage: quote,
-    },
-    {
-      text: "The dining experience here is unmatched! The chefs truly outdo themselves with every dish.",
-      name: "Sarah Johnson",
-      position: "CEO, TechCorp",
-      image: dp2,
-      rightImage: quote,
-    },
-    {
-      text: "I love the cozy atmosphere and the excellent service. Perfect for a relaxed evening.",
-      name: "John Doe",
-      position: "Manager, GlobalTech",
-      image: dp3,
-      rightImage: quote,
-    },
-    {
-      text: "The Mealsgraffiti delivers exceptional quality food with a unique taste that keeps me coming back.",
-      name: "Emma Watson",
-      position: "Designer, Creative Studio",
-      image: dp4,
-      rightImage: quote,
-    },
-    {
-      text: "A hidden gem for food lovers! Their unique menu surprises me in the best way possible.",
-      name: "Michael Brown",
-      position: "Freelancer",
-      image: dp5,
-      rightImage: quote,
-    },
-    {
-      text: "Every meal at The Mealsgraffiti feels like a celebration of flavors. Truly an unforgettable dining experience.",
-      name: "Jessica Adams",
-      position: "Blogger",
-      image: dp6,
-      rightImage: quote,
-    },
-  ];
-
+   const testimonials = [
+     {
+       text: "The Mealsgraffiti is my go-to place for celebrating special occasions. Their food is always delightful and full of flavor.",
+       name: "Michael Williamson",
+       position: "Food Critic, Local Eats",
+       image: dp1,
+       rightImage: quote,
+     },
+     {
+       text: "The dining experience at The Mealsgraffiti is unmatched! The chefs truly outdo themselves with every dish.",
+       name: "david Johnson",
+       position: "Restaurant Owner, Taste Haven",
+       image: dp2,
+       rightImage: quote,
+     },
+     {
+       text: "I love the cozy atmosphere and the excellent service at The Mealsgraffiti. Perfect for a relaxed evening with amazing food.",
+       name: "sarah Doe",
+       position: "Chef, Gourmet Bistro",
+       image: dp3,
+       rightImage: quote,
+     },
+     {
+       text: "The Mealsgraffiti delivers exceptional quality food with a unique taste that keeps me coming back for more.",
+       name: "Bill Watson",
+       position: "Food Stylist, Elegant Plates",
+       image: dp4,
+       rightImage: quote,
+     },
+     {
+       text: "A hidden gem for food lovers! The Mealsgraffiti's unique menu surprises me in the best way possible every time.",
+       name: "Jason Brown",
+       position: "Food Blogger, The Flavor Journey",
+       image: dp5,
+       rightImage: quote,
+     },
+     {
+       text: "Every meal at The Mealsgraffiti feels like a celebration of flavors. Truly an unforgettable dining experience.",
+       name: "Jessica Adams",
+       position: "Gastronomy Enthusiast, Taste Explorers",
+       image: dp6,
+       rightImage: quote,
+     },
+   ];
+  
   const settings = {
     dots: true,
     infinite: true,
@@ -117,7 +119,7 @@ export default function AboutPage() {
 
   return (
     <>
-      <section>
+      <section style={{ overflowX: "hidden" }}>
         <HeaderPage />
         <div
           className="relative flex -mt-24 top-1 items-center justify-center text-center"
@@ -219,24 +221,38 @@ export default function AboutPage() {
             </Link>
           </motion.div>
         </div>
-        <div
+        <motion.div
           className="relative text-white font-semibold py-10"
           style={{
-            backgroundImage: `url(${fx1})`,
+            backgroundImage: `url(${bg})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }} // Trigger only once when the section is in view
         >
-          <div className="absolute inset-0 bg-black bg-opacity-80"></div>
-          <div className="relative z-10 text-center">
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-zinc-950 bg-opacity-80"></div>
+
+          {/* Header */}
+          <motion.div
+            className="relative z-10 text-center"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
             <h1 className="text-orange-500 mb-5 text-lg md:text-xl">
               TESTIMONIALS
             </h1>
             <h3 className="text-2xl md:text-4xl mb-10 md:mb-20">
               Reviews about our test
             </h3>
-          </div>
+          </motion.div>
 
+          {/* Slider */}
           <Slider
             {...settings}
             className="max-w-6xl text-left mx-auto slider-with-gap"
@@ -251,9 +267,10 @@ export default function AboutPage() {
                   borderRadius: "10px",
                   overflow: "hidden",
                 }}
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.9, delay: index * 0.2 }} // Stagger effect for slides
+                viewport={{ once: true }}
               >
                 <div className="flex items-start justify-between mb-5">
                   <h4 className="text-lg md:text-xl flex-grow">
@@ -261,7 +278,10 @@ export default function AboutPage() {
                   </h4>
                   <img
                     className="flex-shrink-0 ml-3"
-                    style={{ height: "35px", width: "35px" }}
+                    style={{
+                      height: "35px",
+                      width: "35px",
+                    }}
                     src={testimonial.rightImage}
                     alt={`${testimonial.name} - Quote Icon`}
                   />
@@ -290,7 +310,53 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </Slider>
+        </motion.div>
+
+        <div className="flex flex-col md:flex-row relative z-10 bg-zinc-900">
+          <motion.img
+            className="w-full md:w-1/2 h-48 md:h-72"
+            src={fx22}
+            alt="Newsletter Background"
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+          />
+          <motion.div
+            className="w-full md:w-1/2 bg-zinc-950 text-center p-4 md:p-6"
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <h2 className="text-orange-500 text-lg md:text-2xl font-mono font-semibold mb-3">
+              NEWSLETTER
+            </h2>
+            <h1 className="text-2xl md:text-4xl font-bold text-white mb-3">
+              Subscribe to Our Newsletter
+            </h1>
+            <h3 className="text-sm md:text-lg text-white mb-4">
+              To get the latest updates, offers, and promotions
+            </h3>
+            <div className="flex flex-col md:flex-row items-center justify-center">
+              <input
+                className="w-full md:w-3/4 p-3 bg-transparent border-2 border-zinc-600 text-white placeholder-zinc-400 mb-4 md:mb-0 md:mr-4"
+                type="email"
+                placeholder="Enter your email"
+              />
+              <button className="w-full md:w-auto px-5 py-2 text-zinc-800 font-semibold bg-white hover:bg-orange-500 hover:text-white transition">
+                Subscribe
+              </button>
+            </div>
+            <h3 className="text-lg md:text-xl mt-4 text-white">
+              Call for Reservation
+              <a href="tel:+2349160002472">
+                <span className="text-orange-500 underline ml-2">
+                  +234 916 000 2472
+                </span>
+              </a>
+            </h3>
+          </motion.div>
         </div>
+
         <FooterPage />
         {/* Scroll to Top Button */}
         {showScrollToTop && (

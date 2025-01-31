@@ -118,9 +118,12 @@ export default function ContactPage() {
               <div className="mt-8 space-y-6">
                 <div>
                   <h4 className="text-orange-700 font-semibold">
-                    Visit our Office
+                    Visit our Restaurant
                   </h4>
-                  <p>245 D, South City Mixed Tower, Main Town, New York, USA</p>
+                  <p>
+                    2 Aro Ologolo Rd, Lekki Penninsula II,<br /> Lagos 106104, Lagos,
+                    Nigeria
+                  </p>
                 </div>
                 <div>
                   <h4 className="text-orange-700 font-semibold">Call us</h4>
