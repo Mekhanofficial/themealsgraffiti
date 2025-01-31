@@ -25,6 +25,7 @@ import px28 from "../../pictures/px28.jpg";
 import fx20 from "../../pictures/fx20.jpg";
 import fx21 from "../../pictures/fx21.jpg";
 import fx22 from "../../pictures/fx22.jpg";
+import fx27 from "../../pictures/fx29.jpg";
 import quote from "../../pictures/quote.png";
 import gbg2 from "../../pictures/gbg2.jpg";
 import bg from "../../pictures/bg.jpg";
@@ -840,7 +841,7 @@ const menuItems = {
           >
             <motion.img
               className="h-auto object-cover w-full sm:h-[500px] lg:h-[725px] shadow-lg"
-              src={fx16}
+              src={fx27}
               alt="Event Image"
               transition={{ duration: 0.5 }}
             />
