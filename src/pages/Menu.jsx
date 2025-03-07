@@ -32,7 +32,7 @@ import chickensandwich from "../pictures/chickensandwich.jpg";
 import longbun from "../pictures/longbun.jpg";
 import burgers from "../pictures/burgers.jpg";
 import chocolatevan from "../pictures/chocolatevan.jpg";
-// import suyarice from "../pictures/fx15.png";
+// import suyarice from "../pictures/";
 import fx14 from "../pictures/fx14.jpg";
 import fx22 from "../pictures/fx22.jpg";
 import px27 from "../pictures/px28.jpg";
@@ -452,7 +452,7 @@ export default function MenuPage() {
         price: "#1800",
         description:
           "Fragrant rice served with spiced beef, grilled to perfection.",
-        image: suyarice,
+        // image: suyarice,
       },
       {
         name: "Special Shrimps FriedRice",
