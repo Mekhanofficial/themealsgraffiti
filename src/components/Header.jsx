@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"; // Make sure Link is imported
+import { Link, useLocation } from "react-router-dom"; // Import useLocation
 import gbg2 from "../pictures/headbg.jpg";
 import logoskin from "../pictures/logoskin.png";
 import { useState } from "react";
@@ -6,7 +6,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronDown,
   faBars,
-} from "@fortawesome/free-solid-svg-icons";
+  faHome,
+  faUtensils,
+  faInfoCircle,
+  faBlog,
+  faEnvelope,
+  faUserTie,
+  faFileAlt,
+} from "@fortawesome/free-solid-svg-icons"; // Added icons for sidebar
 import {
   faInstagram,
   faPinterest,
@@ -20,6 +27,7 @@ export default function HeaderPage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSidebarDropdownOpen, setIsSidebarDropdownOpen] = useState(false);
+  const location = useLocation(); // Get the current location
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -35,6 +43,11 @@ export default function HeaderPage() {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+  };
+
+  // Function to check if a link is active
+  const isActive = (path) => {
+    return location.pathname === path ? "text-orange-500" : "text-white";
   };
 
   return (
@@ -122,7 +135,7 @@ export default function HeaderPage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
           >
-            {/* Wrap the logo and text with a Link to make it clickab */}
+            {/* Wrap the logo and text with a Link to make it clickable */}
             <Link to="/" className="flex items-center">
               <img className="w-14 h-14" src={logoskin} alt="Logo" />
               <h1 className="text-2xl -ml-2 font-semibold">
@@ -142,13 +155,19 @@ export default function HeaderPage() {
           >
             <ul className="flex gap-10 text-xl">
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/" className={isActive("/")}>
+                  Home
+                </Link>
               </li>
               <li>
-                <Link to="/menu">Menu</Link>
+                <Link to="/menu" className={isActive("/menu")}>
+                  Menu
+                </Link>
               </li>
               <li>
-                <Link to="/about">About</Link>
+                <Link to="/about" className={isActive("/about")}>
+                  About
+                </Link>
               </li>
               {/* Dropdown for Pages */}
               <div className="relative">
@@ -171,16 +190,22 @@ export default function HeaderPage() {
                     transition={{ duration: 0.2 }}
                   >
                     <li className="px-4 py-2 hover:bg-zinc-700">
-                      <Link to="/blog">Blog</Link>
+                      <Link to="/blog" className={isActive("/blog")}>
+                        Blog
+                      </Link>
                     </li>
                     <li className="px-4 py-2 hover:bg-zinc-700">
-                      <Link to="/">Chef</Link>
+                      <Link to="/chef" className={isActive("/chef")}>
+                        Chef
+                      </Link>
                     </li>
                   </motion.ul>
                 )}
               </div>
               <li>
-                <Link to="/contact">Contact</Link>
+                <Link to="/contact" className={isActive("/contact")}>
+                  Contact
+                </Link>
               </li>
             </ul>
           </motion.div>
@@ -233,18 +258,33 @@ export default function HeaderPage() {
           </div>
           <ul className="space-y-4 mt-4 font-semibold">
             <li>
-              <Link to="/" onClick={closeMobileMenu}>
-                Home
+              <Link
+                to="/"
+                className={`flex items-center gap-3 ${isActive("/")}`}
+                onClick={closeMobileMenu}
+              >
+                <FontAwesomeIcon icon={faHome} className="w-4 h-4" />
+                <span>Home</span>
               </Link>
             </li>
             <li>
-              <Link to="/menu" onClick={closeMobileMenu}>
-                Menu
+              <Link
+                to="/menu"
+                className={`flex items-center gap-3 ${isActive("/menu")}`}
+                onClick={closeMobileMenu}
+              >
+                <FontAwesomeIcon icon={faUtensils} className="w-4 h-4" />
+                <span>Menu</span>
               </Link>
             </li>
             <li>
-              <Link to="/about" onClick={closeMobileMenu}>
-                About
+              <Link
+                to="/about"
+                className={`flex items-center gap-3 ${isActive("/about")}`}
+                onClick={closeMobileMenu}
+              >
+                <FontAwesomeIcon icon={faInfoCircle} className="w-4 h-4" />
+                <span>About</span>
               </Link>
             </li>
             {/* Dropdown for Pages */}
@@ -253,27 +293,50 @@ export default function HeaderPage() {
                 className="flex justify-between items-center cursor-pointer"
                 onClick={toggleSidebarDropdown}
               >
-                <span>Pages</span>
-                <FontAwesomeIcon className="h-4" icon={faChevronDown} />
+                <div className="flex items-center gap-3">
+                  <FontAwesomeIcon icon={faFileAlt} className="w-4 h-4" />
+                  <span>Pages</span>
+                </div>
+                <FontAwesomeIcon
+                  className={`h-4 transition-transform ${
+                    isSidebarDropdownOpen ? "rotate-180" : ""
+                  }`}
+                  icon={faChevronDown}
+                />
               </div>
               {isSidebarDropdownOpen && (
-                <ul className="pl-4 mt-2 space-y-2">
+                <ul className="pl-8 mt-2 space-y-2">
                   <li>
-                    <Link to="/blog" onClick={closeMobileMenu}>
-                      Blog
+                    <Link
+                      to="/blog"
+                      className={`flex items-center gap-3 ${isActive("/blog")}`}
+                      onClick={closeMobileMenu}
+                    >
+                      <FontAwesomeIcon icon={faBlog} className="w-4 h-4" />
+                      <span>Blog</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/chef" onClick={closeMobileMenu}>
-                      Chef
+                    <Link
+                      to="/chef"
+                      className={`flex items-center gap-3 ${isActive("/chef")}`}
+                      onClick={closeMobileMenu}
+                    >
+                      <FontAwesomeIcon icon={faUserTie} className="w-4 h-4" />
+                      <span>Chef</span>
                     </Link>
                   </li>
                 </ul>
               )}
             </li>
             <li>
-              <Link to="/contact" onClick={closeMobileMenu}>
-                Contact
+              <Link
+                to="/contact"
+                className={`flex items-center gap-3 ${isActive("/contact")}`}
+                onClick={closeMobileMenu}
+              >
+                <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />
+                <span>Contact</span>
               </Link>
             </li>
           </ul>
