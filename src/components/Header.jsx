@@ -195,7 +195,7 @@ export default function HeaderPage() {
                       </Link>
                     </li>
                     <li className="px-4 py-2 hover:bg-zinc-700">
-                      <Link to="/chef" className={isActive("/chef")}>
+                      <Link to="/" className={isActive("/chef")}>
                         Chef
                       </Link>
                     </li>
@@ -318,7 +318,7 @@ export default function HeaderPage() {
                   </li>
                   <li>
                     <Link
-                      to="/chef"
+                      to="/"
                       className={`flex items-center gap-3 ${isActive("/chef")}`}
                       onClick={closeMobileMenu}
                     >
