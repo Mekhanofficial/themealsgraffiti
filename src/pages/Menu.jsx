@@ -1,6 +1,14 @@
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import HeaderPage from "../components/Header";
+import FooterPage from "../components/Footer";
+
+// Import all images
 import plainfried from "../pictures/plainfried.jpg";
 import pineshrimprice from "../pictures/pineshrimprice.jpg";
-// import jambalayarice from "../pictures/jambalayarice.jpg";
 import jollof from "../pictures/jollof.jpg";
 import shrimpfriedrice from "../pictures/shrimpfriedrice.jpg";
 import coconutrice from "../pictures/coconutrice.jpeg";
@@ -8,15 +16,12 @@ import chineserice from "../pictures/chineserice.jpg";
 import riceandstew from "../pictures/riceandstew.jpg";
 import grilledchicken from "../pictures/grilledchic.jpg";
 import grilledchicmed from "../pictures/grilledchicmed.avif";
-// import grilledturkey from "../pictures/fx15.png";
 import pepperedchic from "../pictures/pepperedchic.jpg";
-import pepperedturkey from "../pictures/plainfried.jpg";
 import stewedbeef from "../pictures/stewedbeef.jpg";
 import crispychic from "../pictures/crispychic.jpg";
 import pepperedbeef from "../pictures/pepperedbeef.jpg";
 import croaker from "../pictures/croaker.jpg";
 import hakefish from "../pictures/hakefish.jpg";
-// import assortedmeat from "../pictures/fx15.png";
 import stewedtitus from "../pictures/stewedtitus.jpg";
 import coleslaw from "../pictures/coleslaw.jpg";
 import dodo from "../pictures/dodo.jpg";
@@ -32,47 +37,16 @@ import chickensandwich from "../pictures/chickensandwich.jpg";
 import longbun from "../pictures/longbun.jpg";
 import burgers from "../pictures/burgers.jpg";
 import chocolatevan from "../pictures/chocolatevan.jpg";
-// import suyarice from "../pictures/";
 import fx14 from "../pictures/fx14.jpg";
 import fx22 from "../pictures/fx22.jpg";
 import px27 from "../pictures/px28.jpg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import HeaderPage from "../components/Header";
-import FooterPage from "../components/Footer";
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 export default function MenuPage() {
   const [showScrollToTop, setShowScrollToTop] = useState(false);
-
-  // Show or hide the button based on scroll position
-  const handleScroll = () => {
-    if (window.scrollY > 200) {
-      setShowScrollToTop(true);
-    } else {
-      setShowScrollToTop(false);
-    }
-  };
-
-  // Scroll to the top when the button is clicked
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  useEffect(() => {
-    // Add the scroll event listener
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   const [selectedMenu, setSelectedMenu] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [quantity, setQuantity] = useState(1);
   const itemsPerPage = 8;
 
   const menuItems = {
@@ -228,41 +202,16 @@ export default function MenuPage() {
         image: pineshrimprice,
       },
       {
-        name: "Jambalaya Rice",
-        price: "#2200",
-        description: "Spicy Creole rice with seafood and sausage",
-        // image: jambalayarice,
-      },
-      {
-        name: "Grilled Turkey",
-        price: "#5000",
-        description: "Flavorful grilled turkey",
-        // image: grilledturkey,
-      },
-      {
         name: "Plain Fried Rice",
         price: "#1000",
         description: "Simple fried rice with vegetables",
         image: plainfried,
       },
       {
-        name: "Suya Rice",
-        price: "#1800",
-        description: "Spiced suya-flavored rice with beef",
-        // image: suyarice,
-      },
-      {
         name: "Asun Coconut Rice",
         price: "#1700",
         description: "Coconut rice with spicy goat meat (asun)",
         image: coconutrice,
-      },
-
-      {
-        name: "Assorted Meat",
-        price: "#1500",
-        description: "Variety of spicy meats",
-        // image: assortedmeat,
       },
       {
         name: "Stewed Titus",
@@ -277,12 +226,6 @@ export default function MenuPage() {
         image: coleslaw,
       },
       {
-        name: "Peppered Turkey",
-        price: "#5000",
-        description: "Spicy peppered turkey",
-        // image: pepperedturkey,
-      },
-      {
         name: "Chocolate & Vanilla Cookies",
         price: "#500",
         description: "Freshly baked chocolate and vanilla cookies",
@@ -293,92 +236,79 @@ export default function MenuPage() {
       {
         name: "Banana Bread",
         price: "#2500",
-        description:
-          "Freshly baked banana bread, soft and delicious with a hint of sweetness.",
+        description: "Freshly baked banana bread, soft and delicious",
         image: bananabread,
       },
       {
         name: "Banana Bread Medium",
         price: "#2000",
-        description:
-          "A larger portion of our signature banana bread, perfect for sharing.",
+        description: "Medium-sized banana bread, perfect for sharing",
         image: bananabmed,
       },
       {
         name: "Jam Doughnuts",
         price: "#700",
-        description:
-          "Soft, fluffy doughnuts filled with sweet fruit jam, perfect for a quick snack.",
+        description: "Soft, fluffy doughnuts filled with sweet fruit jam",
         image: jamdou,
       },
       {
         name: "Chocolate x Vanilla Cookies",
         price: "#500",
-        description:
-          "A decadent mix of chocolate and vanilla cookies, chewy and rich in flavor.",
+        description: "Decadent mix of chocolate and vanilla cookies",
         image: chocolatevan,
       },
       {
         name: "Chicken Sandwich",
         price: "#2000",
-        description:
-          "A crispy chicken fillet served with fresh lettuce, tomato, and mayo in a soft bun.",
+        description: "Crispy chicken fillet with lettuce, tomato, and mayo",
         image: chickensandwich,
       },
       {
         name: "Long Bun Chicken Sandwich",
         price: "#3000",
-        description:
-          "A juicy, crispy chicken fillet served in a long, soft bun with all the toppings.",
+        description: "Juicy chicken fillet in a long bun with toppings",
         image: longbun,
       },
       {
         name: "Party Jollof Rice",
         price: "#1000",
-        description:
-          "A hearty serving of flavorful Jollof rice, perfect for sharing at parties.",
+        description: "Flavorful Jollof rice, perfect for sharing",
         image: jollof,
       },
       {
         name: "Plain Fried Rice",
         price: "#1000",
-        description:
-          "A simple yet delicious fried rice made with fresh vegetables and seasoned to perfection.",
+        description: "Simple fried rice with fresh vegetables",
         image: plainfried,
       },
       {
         name: "Plantain",
         price: "#1000",
-        description:
-          "Golden fried plantain slices, crispy on the outside and tender on the inside.",
+        description: "Golden fried plantain slices",
         image: dodo,
       },
       {
         name: "Stewed Beef",
         price: "#1500",
-        description:
-          "Tender beef stewed in a rich, flavorful sauce, served hot and juicy.",
+        description: "Tender beef in rich tomato sauce",
         image: stewedbeef,
       },
       {
         name: "Peppered Chicken",
         price: "#4000",
-        description:
-          "Spicy grilled chicken seasoned with peppers and herbs, served with a kick.",
+        description: "Spicy grilled chicken with herbs",
         image: pepperedchic,
       },
       {
         name: "Peppered Beef",
         price: "#1500",
-        description:
-          "Tender beef cooked in a spicy pepper sauce, packed with flavor.",
+        description: "Tender beef in spicy pepper sauce",
         image: pepperedbeef,
       },
       {
         name: "Burgers",
         price: "#5000",
-        description:
-          "Juicy beef burger served with lettuce, tomato, and a special sauce.",
+        description: "Juicy beef burger with special sauce",
         image: burgers,
       },
     ],
@@ -386,29 +316,25 @@ export default function MenuPage() {
       {
         name: "Meat Pie",
         price: "#1000",
-        description:
-          "Flaky pastry filled with a savory mix of seasoned meat and vegetables.",
+        description: "Flaky pastry with seasoned meat and vegetables",
         image: meatpie,
       },
       {
         name: "Chicken Pie",
         price: "#1200",
-        description:
-          "Flaky pastry filled with tender chicken and a rich, creamy filling.",
+        description: "Pastry with tender chicken and creamy filling",
         image: chickenpie,
       },
       {
         name: "Chicken Sandwich",
         price: "#2000",
-        description:
-          "A crispy chicken sandwich served with lettuce, tomato, and mayo.",
+        description: "Crispy chicken sandwich with fresh toppings",
         image: chickensandwich,
       },
       {
         name: "Long Bun Chicken Sandwich",
         price: "#3000",
-        description:
-          "A juicy chicken fillet served in a long bun, with fresh toppings and a savory sauce.",
+        description: "Chicken fillet in long bun with savory sauce",
         image: longbun,
       },
     ],
@@ -416,77 +342,49 @@ export default function MenuPage() {
       {
         name: "Party Jollof Rice",
         price: "#1000",
-        description:
-          "A rich and flavorful Jollof rice, cooked to perfection and perfect for lunch gatherings.",
+        description: "Rich and flavorful Jollof rice",
         image: jollof,
-      },
-      {
-        name: "Assorted Meat",
-        price: "#1500",
-        description: "Variety of spicy meats",
-        // image: assortedmeat,
       },
       {
         name: "Pineapple Shrimps Fried Rice",
         price: "#2500",
-        description:
-          "A delightful mix of shrimps, fried rice, and tangy pineapple chunks.",
+        description: "Fried rice with shrimp and pineapple",
         image: pineshrimprice,
-      },
-      {
-        name: "Jambalaya Rice",
-        price: "#2200",
-        description:
-          "A spiced rice dish with a mix of chicken, sausage, and shrimp, all cooked together.",
-        // image: jambalayarice,
       },
       {
         name: "Plain Fried Rice",
         price: "#1000",
-        description:
-          "Delicious fried rice made with fresh ingredients, lightly seasoned for a satisfying meal.",
+        description: "Fried rice with fresh vegetables",
         image: plainfried,
-      },
-      {
-        name: "Suya Rice",
-        price: "#1800",
-        description:
-          "Fragrant rice served with spiced beef, grilled to perfection.",
-        // image: suyarice,
       },
       {
         name: "Special Shrimps FriedRice",
         price: "#2000",
-        description:
-          "Shrimps fried rice, a seasonal favorite with an extra dose of flavor.",
+        description: "Seasonal favorite with extra flavor",
         image: shrimpfriedrice,
       },
       {
         name: "Asun Coconut Rice",
         price: "#1700",
-        description:
-          "A fusion of coconut rice served with tender grilled beef, perfect for a tropical touch.",
+        description: "Coconut rice with grilled beef",
         image: coconutrice,
       },
       {
         name: "White Rice x Stew",
         price: "#1000",
-        description:
-          "Simple and classic white rice served with a rich, flavorful stew.",
+        description: "White rice with rich, flavorful stew",
         image: riceandstew,
       },
       {
         name: "Coleslaw",
         price: "#1000",
-        description:
-          "A refreshing side of creamy coleslaw, perfect to balance any meal.",
+        description: "Creamy coleslaw salad",
         image: coleslaw,
       },
       {
         name: "Chinese Rice",
         price: "#1500",
-        description:
-          "A chef's special fried rice, packed with vegetables and seasoned with authentic Chinese spices.",
+        description: "Fried rice with authentic Chinese spices",
         image: chineserice,
       },
     ],
@@ -494,281 +392,448 @@ export default function MenuPage() {
       {
         name: "Stewed Beef",
         price: "#1500",
-        description:
-          "Tender beef cooked in a rich tomato sauce, a perfect dinner option.",
+        description: "Tender beef in rich tomato sauce",
         image: stewedbeef,
-      },
-      {
-        name: "Peppered Turkey",
-        price: "#5000",
-        description: "Spicy peppered turkey",
-        // image: pepperedturkey,
       },
       {
         name: "Grilled Chicken",
         price: "#4000",
-        description:
-          "Grilled chicken seasoned with fresh herbs and spices, served with a side of vegetables.",
+        description: "Chicken seasoned with herbs and spices",
         image: grilledchicken,
-      },
-      {
-        name: "Grilled Turkey",
-        price: "#5000",
-        description:
-          "Juicy grilled turkey, marinated in a blend of spices and served with mashed potatoes.",
-        // image: grilledturkey,
       },
       {
         name: "Crispy Chicken",
         price: "#3000",
-        description:
-          "Crispy fried chicken served with your choice of dipping sauce.",
+        description: "Crispy fried chicken with dipping sauce",
         image: crispychic,
       },
       {
         name: "Peppered Snail",
         price: "#5000",
-        description:
-          "A delicacy of spicy cooked snails, a perfect dinner choice for seafood lovers.",
+        description: "Spicy cooked snails for seafood lovers",
         image: pepperedsnail,
       },
       {
         name: "Peppered Fried Fish",
         price: "#4000",
-        description:
-          "A flavorful fried fish, topped with spicy pepper sauce for an extra kick.",
+        description: "Fried fish with spicy pepper sauce",
         image: croaker,
       },
     ],
   };
 
+  // Scroll handling
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollToTop(window.scrollY > 200);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Pagination
   const totalPages = Math.ceil(menuItems[selectedMenu].length / itemsPerPage);
   const paginatedItems = menuItems[selectedMenu].slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
 
-  useEffect(() => {}, [selectedMenu, currentPage]);
+  // WhatsApp order function
+  const handleWhatsAppOrder = (product) => {
+    setSelectedProduct(product);
+    setQuantity(1);
+  };
 
- return (
-   <>
-     <section className="overflow-x-hidden">
-       <HeaderPage />
-       <div
-         className="relative -mt-24 top-1 flex items-center justify-center text-center"
-         style={{ height: "100vh" }}
-       >
-         <div
-           className="absolute top-0 left-0 w-full h-full bg-zinc-950 opacity-80"
-           style={{ zIndex: "-2" }} // Set to -2 so it's below content
-         ></div>
+  const sendWhatsAppMessage = () => {
+    if (!selectedProduct) return;
 
-         <img
-           style={{
-             height: "100vh",
-             width: "100%",
-             position: "absolute",
-             top: "0",
-             left: "0",
-             zIndex: "-3", // Ensures image stays behind all content
-             objectFit: "cover",
-           }}
-           src={px27}
-           alt="Background image showcasing a restaurant or food ambiance"
-         />
+    const phoneNumber = "+2349160002471"; // Your WhatsApp number
+    const message = `Hello, I would like to order:
+    
+*Product:* ${selectedProduct.name}
+*Price:* ${selectedProduct.price}
+*Quantity:* ${quantity}
+*Total:* ${selectedProduct.price.replace(/#/g, "") * quantity}
 
-         <motion.div
-           className="z-10 relative" // Added 'relative' here to ensure it layers properly on top of the image
-           initial={{ opacity: 0, y: -100 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           transition={{ duration: 1 }}
-         >
-           <h1 className="font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white">
-             Our Menu
-           </h1>
-           <h3 className="text-orange-700 font-semibold text-xl mt-2">
-             <Link to="/">HOME-</Link>MENU
-           </h3>
-         </motion.div>
-       </div>
+Please let me know the next steps for completing my order.`;
 
-       <motion.div
-         className="relative w-full"
-         style={{
-           backgroundImage: `url(${fx14})`,
-           backgroundSize: "cover",
-           backgroundPosition: "center",
-           paddingBottom: "350px",
-           paddingTop: "50px",
-         }}
-         initial={{ opacity: 0 }}
-         animate={{ opacity: 1 }}
-         transition={{ duration: 0.5 }}
-       >
-         <motion.div
-           className="absolute inset-0 bg-zinc-950 bg-opacity-90 z-0"
-           initial={{ opacity: 0 }}
-           animate={{ opacity: 0.9 }}
-           transition={{ duration: 1 }}
-         ></motion.div>
+    const encodedMessage = encodeURIComponent(message);
+    window.open(
+      `https://wa.me/${phoneNumber}?text=${encodedMessage}`,
+      "_blank"
+    );
+    setSelectedProduct(null);
+  };
 
-         <motion.div
-           className="text-center px-6 sm:px-12 md:px-24 lg:px-48 absolute left-0 w-full z-10"
-           initial={{ y: -50, opacity: 0 }}
-           whileInView={{ y: 0, opacity: 1 }}
-           transition={{ duration: 0.8 }}
-           viewport={{ once: true }}
-         >
-           <h2 className="text-orange-500 text-xl mb-5">TEST A LITTLE BIT</h2>
-           <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5">
-             Our Special Menu
-           </h3>
+  return (
+    <>
+      <HeaderPage />
 
-           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-7 mt-5 justify-center items-center mb-12">
-             {["all", "breakfast", "brunch", "lunch", "dinner"].map((menu) => (
-               <motion.button
-                 key={menu}
-                 className={`border-2 p-3 font-semibold text-center ${
-                   selectedMenu === menu
-                     ? "text-orange-500 border-orange-500"
-                     : "text-white border-white"
-                 }`}
-                 onClick={() => setSelectedMenu(menu)}
-                 whileHover={{ scale: 1.1 }}
-                 whileTap={{ scale: 0.95 }}
-               >
-                 {menu.charAt(0).toUpperCase() + menu.slice(1)}
-               </motion.button>
-             ))}
-           </div>
-         </motion.div>
+      {/* Hero Section */}
+      <section className="relative h-screen flex -mt-24 top-1 items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-black/80 z-0" />
+        <img
+          src={px27}
+          alt="Restaurant ambiance"
+          className="absolute inset-0 w-full h-full object-cover z-[-1]"
+        />
 
-         <div className="relative min-h-screen top-80 z-10 text-zinc-400">
-           <motion.div
-             className="flex flex-wrap gap-6 justify-center"
-             initial={{ opacity: 0 }}
-             animate={{ opacity: 1 }}
-             transition={{ duration: 1 }}
-           >
-             {paginatedItems.map((item, index) => (
-               <motion.div
-                 key={index}
-                 className="bg-zinc-900 rounded-lg shadow-lg p-4 flex flex-col items-center gap-4 relative"
-                 initial={{ x: -50, opacity: 0 }}
-                 whileInView={{ x: 0, opacity: 1 }}
-                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                 viewport={{ once: true }}
-                 style={{
-                   width: "280px",
-                   height: "330px",
-                 }}
-               >
-                 <img
-                   src={item.image}
-                   alt={item.name}
-                   className="w-44 h-44 rounded-lg"
-                 />
-                 <div className="text-left">
-                   <h2 className="font-bold text-xl">{item.name}</h2>
-                   <p className="font-light text-sm mt-2">{item.description}</p>
-                   <h2 className="font-semibold text-lg mt-4">{item.price}</h2>
-                 </div>
+        <motion.div
+          className="text-center z-10 px-4"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4">
+            Our Menu
+          </h1>
+          <p className="text-orange-500 text-lg md:text-xl">
+            <Link to="/" className="hover:text-orange-400 transition">
+              Home
+            </Link>{" "}
+            / Menu
+          </p>
+        </motion.div>
+      </section>
 
-                 {/* WhatsApp Button next to price */}
-                 <a
-                   href="https://wa.me/2349160002471" // Link to WhatsApp chat
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   className="absolute bottom-4 right-4 bg-orange-500 text-white p-2 rounded-full shadow-lg hover:bg-green-600 transition duration-300"
-                 >
-                   <FontAwesomeIcon icon={faWhatsapp} className="text-xl" />
-                 </a>
-               </motion.div>
-             ))}
-           </motion.div>
+      {/* Menu Section */}
+      <section className="relative py-20">
+        {/* Background Image with Black Overlay */}
+        <div className="absolute inset-0">
+          <img
+            src={fx14}
+            alt="Menu background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/90"></div>
+        </div>
 
-           <div className="flex justify-center items-center gap-4 mt-8">
-             <button
-               className="px-4 py-2 bg-orange-500 text-white rounded shadow disabled:bg-gray-500"
-               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-               disabled={currentPage === 1}
-             >
-               Previous
-             </button>
-             <span className="text-white font-semibold">
-               Page {currentPage} of {totalPages}
-             </span>
-             <button
-               className="px-4 py-2 bg-orange-500 text-white rounded shadow disabled:bg-gray-500"
-               onClick={() =>
-                 setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-               }
-               disabled={currentPage === totalPages}
-             >
-               Next
-             </button>
-           </div>
-         </div>
-       </motion.div>
+        <div className="container mx-auto px-4 relative z-10">
+          {/* Section Header */}
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-orange-500 text-lg font-medium mb-2">
+              Delicious Selection
+            </h2>
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-8">
+              Explore Our Menu
+            </h3>
 
-       <div className="flex flex-col md:flex-row relative z-10 bg-zinc-900">
-         <motion.img
-           className="w-full md:w-1/2 h-48 md:h-72"
-           src={fx22}
-           alt="Newsletter Background"
-           initial={{ opacity: 0, x: -100 }}
-           whileInView={{ opacity: 1, x: 0 }}
-           transition={{ duration: 1 }}
-         />
-         <motion.div
-           className="w-full md:w-1/2 bg-zinc-950 text-center p-4 md:p-6"
-           initial={{ opacity: 0, x: 100 }}
-           whileInView={{ opacity: 1, x: 0 }}
-           transition={{ duration: 1 }}
-         >
-           <h2 className="text-orange-500 text-lg md:text-2xl font-mono font-semibold mb-3">
-             NEWSLETTER
-           </h2>
-           <h1 className="text-2xl md:text-4xl font-bold text-white mb-3">
-             Subscribe to Our Newsletter
-           </h1>
-           <h3 className="text-sm md:text-lg text-white mb-4">
-             To get the latest updates, offers, and promotions
-           </h3>
-           <div className="flex flex-col md:flex-row items-center justify-center">
-             <input
-               className="w-full md:w-3/4 p-3 bg-transparent border-2 border-zinc-600 text-white placeholder-zinc-400 mb-4 md:mb-0 md:mr-4"
-               type="email"
-               placeholder="Enter your email"
-             />
-             <button className="w-full md:w-auto px-5 py-2 text-zinc-800 font-semibold bg-white hover:bg-orange-500 hover:text-white transition">
-               Subscribe
-             </button>
-           </div>
-           <h3 className="text-lg md:text-xl mt-4 text-white">
-             Call for Reservation
-             <a href="tel:+2349160002472">
-               <span className="text-orange-500 underline ml-2">
-                 +234 916 000 2472
-               </span>
-             </a>
-           </h3>
-         </motion.div>
-       </div>
-     </section>
-     <FooterPage />
+            {/* Menu Filter Buttons */}
+            <div className="flex flex-wrap justify-center gap-3 mb-12">
+              {["all", "breakfast", "brunch", "lunch", "dinner"].map((menu) => (
+                <motion.button
+                  key={menu}
+                  className={`px-6 py-3 rounded-full font-medium transition-all ${
+                    selectedMenu === menu
+                      ? "bg-orange-500 text-white"
+                      : "bg-white/10 text-white hover:bg-white/20"
+                  }`}
+                  onClick={() => {
+                    setSelectedMenu(menu);
+                    setCurrentPage(1);
+                  }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {menu.charAt(0).toUpperCase() + menu.slice(1)}
+                </motion.button>
+              ))}
+            </div>
+          </motion.div>
 
-     {/* Scroll to Top Button */}
-     {showScrollToTop && (
-       <button
-         onClick={scrollToTop}
-         className="fixed bottom-4 right-4 z-10 bg-orange-500 text-white p-3 w-10 rounded-full shadow-lg hover:bg-orange-600 transition duration-300"
-       >
-         ↑
-       </button>
-     )}
-   </>
- );
+          {/* Menu Items Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {paginatedItems.map((item, index) => (
+              <motion.div
+                key={index}
+                className="bg-zinc-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
 
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-bold text-white">
+                      {item.name}
+                    </h3>
+                    <span className="text-orange-500 font-bold">
+                      {item.price}
+                    </span>
+                  </div>
+
+                  <p className="text-zinc-300 mb-4">{item.description}</p>
+
+                  <motion.button
+                    onClick={() => handleWhatsAppOrder(item)}
+                    className="w-full relative overflow-hidden group"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 rounded-lg shadow-lg group-hover:from-green-400 group-hover:to-green-500 transition-all duration-300"></div>
+
+                    <div className="relative z-10 flex items-center justify-center gap-2 py-2 px-4">
+                      <motion.div
+                        animate={{
+                          scale: [1, 1.1, 1],
+                          transition: { repeat: Infinity, duration: 2 },
+                        }}
+                      >
+                        <FontAwesomeIcon
+                          icon={faWhatsapp}
+                          className="text-white text-xl"
+                        />
+                      </motion.div>
+
+                      <span className="text-white font-medium text-lg relative">
+                        Order Now
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
+                      </span>
+
+                      <motion.div
+                        className="absolute -right-4 opacity-0 group-hover:opacity-100 group-hover:right-4 transition-all duration-300"
+                        initial={{ x: 20 }}
+                        animate={{ x: 0 }}
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="text-white"
+                        >
+                          <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                      </motion.div>
+                    </div>
+
+                    {/* Animated pulse effect on hover */}
+                    <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100">
+                      <div className="absolute inset-0 border-2 border-white/30 rounded-lg animate-ping group-hover:animate-none duration-300"></div>
+                    </div>
+                  </motion.button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="flex justify-center items-center gap-4 mt-16">
+              <button
+                className="px-5 py-2 bg-zinc-700/80 text-white rounded-lg disabled:opacity-50 transition hover:bg-zinc-600/80"
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+              >
+                Previous
+              </button>
+
+              <span className="text-white font-medium">
+                Page {currentPage} of {totalPages}
+              </span>
+
+              <button
+                className="px-5 py-2 bg-zinc-700/80 text-white rounded-lg disabled:opacity-50 transition hover:bg-zinc-600/80"
+                onClick={() =>
+                  setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                }
+                disabled={currentPage === totalPages}
+              >
+                Next
+              </button>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <motion.div
+        className="flex flex-col md:flex-row relative z-10"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <motion.img
+          className="w-full md:w-1/2 h-48 md:h-72"
+          src={fx22}
+          alt="Newsletter Background"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        />
+
+        <motion.div
+          className="w-full md:w-1/2 bg-zinc-950 text-center p-4 md:p-6"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <motion.h2
+            className="text-orange-500 text-lg md:text-2xl font-mono font-semibold mb-3"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            NEWSLETTER
+          </motion.h2>
+          <motion.h1
+            className="text-2xl md:text-4xl font-bold text-white mb-3"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Subscribe to Our Newsletter
+          </motion.h1>
+          <motion.h3
+            className="text-sm md:text-lg text-white mb-4"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            To get the latest updates, offers, and promotions
+          </motion.h3>
+          <motion.div
+            className="flex flex-col md:flex-row items-center justify-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <input
+              className="w-full md:w-3/4 p-3 bg-transparent border-2 border-zinc-600 text-white placeholder-zinc-400 mb-4 md:mb-0 md:mr-4"
+              type="email"
+              placeholder="Enter your email"
+            />
+            <button className="w-full md:w-auto px-5 py-2 text-zinc-800 font-semibold bg-white hover:bg-orange-500 hover:text-white transition">
+              Subscribe
+            </button>
+          </motion.div>
+          <motion.h3
+            className="text-lg md:text-xl mt-4 text-white"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            viewport={{ once: true }}
+          >
+            Call for Reservation
+            <a href="tel:+2349160002472">
+              <span className="text-orange-500 underline ml-2">
+                +234 916 000 2472
+              </span>
+            </a>
+          </motion.h3>
+        </motion.div>
+      </motion.div>
+
+      <FooterPage />
+
+      {/* WhatsApp Order Modal */}
+      {selectedProduct && (
+        <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
+          <div className="bg-zinc-800 rounded-xl max-w-md w-full p-6">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-xl font-bold text-white">Order Details</h3>
+              <button
+                onClick={() => setSelectedProduct(null)}
+                className="text-zinc-400 hover:text-white"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="flex gap-4 mb-6">
+              <div className="w-24 h-24 rounded-lg overflow-hidden">
+                <img
+                  src={selectedProduct.image}
+                  alt={selectedProduct.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div>
+                <h4 className="text-lg font-bold text-white">
+                  {selectedProduct.name}
+                </h4>
+                <p className="text-orange-500 font-medium">
+                  {selectedProduct.price}
+                </p>
+              </div>
+            </div>
+
+            <div className="mb-6">
+              <label className="block text-white mb-2">Quantity</label>
+              <div className="flex items-center">
+                <button
+                  onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
+                  className="px-4 py-2 bg-zinc-700 text-white rounded-l-lg"
+                >
+                  -
+                </button>
+                <span className="px-4 py-2 bg-zinc-700 text-white">
+                  {quantity}
+                </span>
+                <button
+                  onClick={() => setQuantity((prev) => prev + 1)}
+                  className="px-4 py-2 bg-zinc-700 text-white rounded-r-lg"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+
+            <div className="flex justify-between items-center mb-6">
+              <span className="text-white">Total:</span>
+              <span className="text-orange-500 font-bold">
+                {selectedProduct.price.replace(/#/g, "") * quantity}
+              </span>
+            </div>
+
+            <button
+              onClick={sendWhatsAppMessage}
+              className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg flex items-center justify-center gap-2 transition-colors"
+            >
+              <FontAwesomeIcon icon={faWhatsapp} />
+              <span>Continue to WhatsApp</span>
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Scroll to Top Button */}
+      {showScrollToTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-40 bg-orange-500 text-white p-3 w-12 h-12 rounded-full shadow-lg hover:bg-orange-600 transition flex items-center justify-center"
+        >
+          ↑
+        </button>
+      )}
+    </>
+  );
 }

@@ -115,7 +115,7 @@ export default function HeaderPage() {
                 icon={faWhatsapp}
               />
             </a>
-            <h1 className="text-xs sm:text-sm md:text-base hover:text-teal-800">
+            <h1 className="text-xs sm:text-sm md:text-base hover:text-orange-400">
               Hungry? Order now and satisfy your cravings
             </h1>
           </motion.div>
