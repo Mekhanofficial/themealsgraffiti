@@ -474,7 +474,7 @@ Please let me know the next steps for completing my order.`;
       <HeaderPage />
 
       {/* Hero Section */}
-      <section className="relative h-screen flex -mt-24 top-1 items-center justify-center overflow-hidden">
+      <section className="relative h-screen flex -mt-24 top-1 items-center justify-center overflow-x-hidden">
         <div className="absolute inset-0 bg-black/80 z-0" />
         <img
           src={px27}

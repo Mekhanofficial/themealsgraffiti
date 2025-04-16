@@ -55,7 +55,7 @@ export default function HeaderPage() {
       <header>
         {/* Social Media Icons and Discount Notification */}
         <motion.div
-          className="flex z-10 relative text-white flex-wrap -top-1 font-semibold justify-between items-center p-4"
+          className="flex z-10 relative text-white flex-wrap -top-1 font-semibold justify-between items-center p-4 "
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
