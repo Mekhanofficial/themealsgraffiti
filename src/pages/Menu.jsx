@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import {
+  faWhatsapp,
+} from "@fortawesome/free-brands-svg-icons";
 import HeaderPage from "../components/Header";
 import FooterPage from "../components/Footer";
 
@@ -40,13 +42,15 @@ import chocolatevan from "../pictures/chocolatevan.jpg";
 import fx14 from "../pictures/fx14.jpg";
 import fx22 from "../pictures/fx22.jpg";
 import px27 from "../pictures/px28.jpg";
+import { faShoppingCart, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default function MenuPage() {
   const [showScrollToTop, setShowScrollToTop] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedProducts, setSelectedProducts] = useState([]);
   const [quantity, setQuantity] = useState(1);
+  const [showCart, setShowCart] = useState(false);
   const itemsPerPage = 8;
 
   const menuItems = {
@@ -442,34 +446,74 @@ export default function MenuPage() {
     currentPage * itemsPerPage
   );
 
-  // WhatsApp order function
-  const handleWhatsAppOrder = (product) => {
-    setSelectedProduct(product);
-    setQuantity(1);
+  // Add to cart function
+  const addToCart = (product) => {
+    setSelectedProducts((prev) => {
+      const existingItem = prev.find((item) => item.name === product.name);
+      if (existingItem) {
+        return prev.map((item) =>
+          item.name === product.name
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        return [...prev, { ...product, quantity: 1 }];
+      }
+    });
   };
 
+  // Remove from cart function
+  const removeFromCart = (productName) => {
+    setSelectedProducts((prev) =>
+      prev.filter((item) => item.name !== productName)
+    );
+  };
+
+  // Update quantity in cart
+  const updateQuantity = (productName, newQuantity) => {
+    if (newQuantity < 1) return;
+    setSelectedProducts((prev) =>
+      prev.map((item) =>
+        item.name === productName ? { ...item, quantity: newQuantity } : item
+      )
+    );
+  };
+
+  // Calculate total price
+  const calculateTotal = () => {
+    return selectedProducts.reduce((total, item) => {
+      const price = parseInt(item.price.replace(/#/g, ""), 10);
+      return total + price * item.quantity;
+    }, 0);
+  };
+
+  // WhatsApp order function for multiple items
   const sendWhatsAppMessage = () => {
-    if (!selectedProduct) return;
+    if (selectedProducts.length === 0) return;
 
-    const phoneNumber = "+2349160002471"; // Your WhatsApp number
-    const message = `Hello, I would like to order:
-    
-*Product:* ${selectedProduct.name}
-*Price:* ${selectedProduct.price}
-*Quantity:* ${quantity}
-*Total:* ${selectedProduct.price.replace(/#/g, "") * quantity}
+    const phoneNumber = "+2349160002471";
+    let message = `Hello, I would like to order the following items:\n\n`;
 
-Please let me know the next steps for completing my order.`;
+    selectedProducts.forEach((item) => {
+      message += `*${item.name}* - ${item.price} x ${item.quantity} = #${
+        parseInt(item.price.replace(/#/g, ""), 10) * item.quantity
+      }\n`;
+    });
+
+    message += `\n*Total:* #${calculateTotal()}\n\nPlease let me know the next steps for completing my order.`;
 
     const encodedMessage = encodeURIComponent(message);
     window.open(
       `https://wa.me/${phoneNumber}?text=${encodedMessage}`,
       "_blank"
     );
-    setSelectedProduct(null);
+    setSelectedProducts([]);
+    setShowCart(false);
   };
 
   return (
+      <div className="overflow-x-hidden">
+
     <>
       <HeaderPage />
 
@@ -550,6 +594,21 @@ Please let me know the next steps for completing my order.`;
             </div>
           </motion.div>
 
+          {/* Cart Indicator */}
+          <div className="fixed right-6 bottom-24 z-40">
+            <button
+              onClick={() => setShowCart(!showCart)}
+              className="bg-orange-500 text-white p-3 rounded-full shadow-lg hover:bg-orange-600 transition flex items-center justify-center relative"
+            >
+              <FontAwesomeIcon icon={faShoppingCart} className="text-xl" />
+              {selectedProducts.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center">
+                  {selectedProducts.length}
+                </span>
+              )}
+            </button>
+          </div>
+
           {/* Menu Items Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {paginatedItems.map((item, index) => (
@@ -582,55 +641,17 @@ Please let me know the next steps for completing my order.`;
                   <p className="text-zinc-300 mb-4">{item.description}</p>
 
                   <motion.button
-                    onClick={() => handleWhatsAppOrder(item)}
+                    onClick={() => addToCart(item)}
                     className="w-full relative overflow-hidden group"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 rounded-lg shadow-lg group-hover:from-green-400 group-hover:to-green-500 transition-all duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg shadow-lg group-hover:from-orange-400 group-hover:to-orange-500 transition-all duration-300"></div>
 
                     <div className="relative z-10 flex items-center justify-center gap-2 py-2 px-4">
-                      <motion.div
-                        animate={{
-                          scale: [1, 1.1, 1],
-                          transition: { repeat: Infinity, duration: 2 },
-                        }}
-                      >
-                        <FontAwesomeIcon
-                          icon={faWhatsapp}
-                          className="text-white text-xl"
-                        />
-                      </motion.div>
-
                       <span className="text-white font-medium text-lg relative">
-                        Order Now
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
+                        Add to Cart
                       </span>
-
-                      <motion.div
-                        className="absolute -right-4 opacity-0 group-hover:opacity-100 group-hover:right-4 transition-all duration-300"
-                        initial={{ x: 20 }}
-                        animate={{ x: 0 }}
-                      >
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="text-white"
-                        >
-                          <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                      </motion.div>
-                    </div>
-
-                    {/* Animated pulse effect on hover */}
-                    <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100">
-                      <div className="absolute inset-0 border-2 border-white/30 rounded-lg animate-ping group-hover:animate-none duration-300"></div>
                     </div>
                   </motion.button>
                 </div>
@@ -667,163 +688,211 @@ Please let me know the next steps for completing my order.`;
         </div>
       </section>
 
-      <motion.div
-        className="flex flex-col md:flex-row relative z-10"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-      >
-        <motion.img
-          className="w-full md:w-1/2 h-48 md:h-72"
-          src={fx22}
-          alt="Newsletter Background"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        />
-
-        <motion.div
-          className="w-full md:w-1/2 bg-zinc-950 text-center p-4 md:p-6"
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <motion.h2
-            className="text-orange-500 text-lg md:text-2xl font-mono font-semibold mb-3"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            NEWSLETTER
-          </motion.h2>
-          <motion.h1
-            className="text-2xl md:text-4xl font-bold text-white mb-3"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            Subscribe to Our Newsletter
-          </motion.h1>
-          <motion.h3
-            className="text-sm md:text-lg text-white mb-4"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            To get the latest updates, offers, and promotions
-          </motion.h3>
+      {/* Shopping Cart Sidebar */}
+      {showCart && (
+        <div className="fixed inset-0 bg-black/70 z-50 flex justify-end">
           <motion.div
-            className="flex flex-col md:flex-row items-center justify-center"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            viewport={{ once: true }}
+            className="bg-zinc-800 w-full max-w-md h-full overflow-y-auto"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
-            <input
-              className="w-full md:w-3/4 p-3 bg-transparent border-2 border-zinc-600 text-white placeholder-zinc-400 mb-4 md:mb-0 md:mr-4"
-              type="email"
-              placeholder="Enter your email"
-            />
-            <button className="w-full md:w-auto px-5 py-2 text-zinc-800 font-semibold bg-white hover:bg-orange-500 hover:text-white transition">
-              Subscribe
-            </button>
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-2xl font-bold text-white">Your Order</h3>
+                <button
+                  onClick={() => setShowCart(false)}
+                  className="text-zinc-400 hover:text-white text-2xl"
+                >
+                  ✕
+                </button>
+              </div>
+
+              {selectedProducts.length === 0 ? (
+                <div className="text-center py-10">
+                  <p className="text-zinc-300">Your cart is empty</p>
+                  <button
+                    onClick={() => setShowCart(false)}
+                    className="mt-4 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600"
+                  >
+                    Browse Menu
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <div className="space-y-4 mb-6">
+                    {selectedProducts.map((item, index) => (
+                      <div
+                        key={index}
+                        className="flex justify-between items-center bg-zinc-700/50 p-4 rounded-lg"
+                      >
+                        <div className="flex items-center gap-4">
+                          <div className="w-16 h-16 rounded overflow-hidden">
+                            <img
+                              src={item.image}
+                              alt={item.name}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <div>
+                            <h4 className="text-white font-medium">
+                              {item.name}
+                            </h4>
+                            <p className="text-orange-500">{item.price}</p>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center gap-3">
+                          <div className="flex items-center border border-zinc-600 rounded-lg">
+                            <button
+                              onClick={() =>
+                                updateQuantity(item.name, item.quantity - 1)
+                              }
+                              className="px-3 py-1 text-white hover:bg-zinc-600"
+                            >
+                              -
+                            </button>
+                            <span className="px-3 py-1 text-white">
+                              {item.quantity}
+                            </span>
+                            <button
+                              onClick={() =>
+                                updateQuantity(item.name, item.quantity + 1)
+                              }
+                              className="px-3 py-1 text-white hover:bg-zinc-600"
+                            >
+                              +
+                            </button>
+                          </div>
+                          <button
+                            onClick={() => removeFromCart(item.name)}
+                            className="text-red-500 hover:text-red-400 p-2"
+                          >
+                            <FontAwesomeIcon icon={faTrashAlt} />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="border-t border-zinc-700 pt-4 mb-6">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-zinc-300">Subtotal:</span>
+                      <span className="text-white font-medium">
+                        #{calculateTotal()}
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-zinc-300">Delivery Fee:</span>
+                      <span className="text-white font-medium">TBD</span>
+                    </div>
+                    <div className="flex justify-between items-center text-lg mt-4">
+                      <span className="text-white font-bold">Total:</span>
+                      <span className="text-orange-500 font-bold">
+                        #{calculateTotal()}
+                      </span>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={sendWhatsAppMessage}
+                    className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg flex items-center justify-center gap-2 transition-colors"
+                  >
+                    <FontAwesomeIcon icon={faWhatsapp} />
+                    <span>Complete Order via WhatsApp</span>
+                  </button>
+                </>
+              )}
+            </div>
           </motion.div>
-          <motion.h3
-            className="text-lg md:text-xl mt-4 text-white"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            viewport={{ once: true }}
-          >
-            Call for Reservation
-            <a href="tel:+2349160002472">
-              <span className="text-orange-500 underline ml-2">
-                +234 916 000 2472
-              </span>
-            </a>
-          </motion.h3>
-        </motion.div>
-      </motion.div>
-
-      <FooterPage />
-
-      {/* WhatsApp Order Modal */}
-      {selectedProduct && (
-        <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
-          <div className="bg-zinc-800 rounded-xl max-w-md w-full p-6">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-xl font-bold text-white">Order Details</h3>
-              <button
-                onClick={() => setSelectedProduct(null)}
-                className="text-zinc-400 hover:text-white"
-              >
-                ✕
-              </button>
-            </div>
-
-            <div className="flex gap-4 mb-6">
-              <div className="w-24 h-24 rounded-lg overflow-hidden">
-                <img
-                  src={selectedProduct.image}
-                  alt={selectedProduct.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div>
-                <h4 className="text-lg font-bold text-white">
-                  {selectedProduct.name}
-                </h4>
-                <p className="text-orange-500 font-medium">
-                  {selectedProduct.price}
-                </p>
-              </div>
-            </div>
-
-            <div className="mb-6">
-              <label className="block text-white mb-2">Quantity</label>
-              <div className="flex items-center">
-                <button
-                  onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
-                  className="px-4 py-2 bg-zinc-700 text-white rounded-l-lg"
-                >
-                  -
-                </button>
-                <span className="px-4 py-2 bg-zinc-700 text-white">
-                  {quantity}
-                </span>
-                <button
-                  onClick={() => setQuantity((prev) => prev + 1)}
-                  className="px-4 py-2 bg-zinc-700 text-white rounded-r-lg"
-                >
-                  +
-                </button>
-              </div>
-            </div>
-
-            <div className="flex justify-between items-center mb-6">
-              <span className="text-white">Total:</span>
-              <span className="text-orange-500 font-bold">
-                {selectedProduct.price.replace(/#/g, "") * quantity}
-              </span>
-            </div>
-
-            <button
-              onClick={sendWhatsAppMessage}
-              className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg flex items-center justify-center gap-2 transition-colors"
-            >
-              <FontAwesomeIcon icon={faWhatsapp} />
-              <span>Continue to WhatsApp</span>
-            </button>
-          </div>
         </div>
       )}
+
+          <motion.div
+               className="flex flex-col md:flex-row relative z-10"
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               transition={{ duration: 1 }}
+               viewport={{ once: true }}
+             >
+               <motion.img
+                 className="w-full md:w-1/2 h-48 md:h-72"
+                 src={fx22}
+                 alt="Newsletter Background"
+                 initial={{ opacity: 0, x: -50 }}
+                 whileInView={{ opacity: 1, x: 0 }}
+                 transition={{ duration: 1 }}
+                 viewport={{ once: true }}
+               />
+     
+               <motion.div
+                 className="w-full md:w-1/2 bg-zinc-950 text-center p-4 md:p-6"
+                 initial={{ opacity: 0, x: 50 }}
+                 whileInView={{ opacity: 1, x: 0 }}
+                 transition={{ duration: 1 }}
+                 viewport={{ once: true }}
+               >
+                 <motion.h2
+                   className="text-orange-500 text-lg md:text-2xl font-mono font-semibold mb-3"
+                   initial={{ opacity: 0, y: -20 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   transition={{ duration: 0.8, delay: 0.2 }}
+                   viewport={{ once: true }}
+                 >
+                   NEWSLETTER
+                 </motion.h2>
+                 <motion.h1
+                   className="text-2xl md:text-4xl font-bold text-white mb-3"
+                   initial={{ opacity: 0, y: -20 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   transition={{ duration: 0.8, delay: 0.4 }}
+                   viewport={{ once: true }}
+                 >
+                   Subscribe to Our Newsletter
+                 </motion.h1>
+                 <motion.h3
+                   className="text-sm md:text-lg text-white mb-4"
+                   initial={{ opacity: 0, y: -20 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   transition={{ duration: 0.8, delay: 0.6 }}
+                   viewport={{ once: true }}
+                 >
+                   To get the latest updates, offers, and promotions
+                 </motion.h3>
+                 <motion.div
+                   className="flex flex-col md:flex-row items-center justify-center"
+                   initial={{ opacity: 0, scale: 0.9 }}
+                   whileInView={{ opacity: 1, scale: 1 }}
+                   transition={{ duration: 1, delay: 0.8 }}
+                   viewport={{ once: true }}
+                 >
+                   <input
+                     className="w-full md:w-3/4 p-3 bg-transparent border-2 border-zinc-600 text-white placeholder-zinc-400 mb-4 md:mb-0 md:mr-4"
+                     type="email"
+                     placeholder="Enter your email"
+                   />
+                   <button className="w-full md:w-auto px-5 py-2 text-zinc-800 font-semibold bg-white hover:bg-orange-500 hover:text-white transition">
+                     Subscribe
+                   </button>
+                 </motion.div>
+                 <motion.h3
+                   className="text-lg md:text-xl mt-4 text-white"
+                   initial={{ opacity: 0, y: 20 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   transition={{ duration: 0.8, delay: 1 }}
+                   viewport={{ once: true }}
+                 >
+                   Call for Reservation
+                   <a href="tel:+2349160002472">
+                     <span className="text-orange-500 underline ml-2">
+                       +234 916 000 2472
+                     </span>
+                   </a>
+                 </motion.h3>
+               </motion.div>
+             </motion.div>
+      <FooterPage />
 
       {/* Scroll to Top Button */}
       {showScrollToTop && (
@@ -835,5 +904,6 @@ Please let me know the next steps for completing my order.`;
         </button>
       )}
     </>
+    </div>
   );
 }
