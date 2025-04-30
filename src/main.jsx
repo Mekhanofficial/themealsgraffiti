@@ -9,29 +9,35 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import BlogPage from "./pages/Blog";
 import ContactPage from "./pages/Contact";
 import MenuPage from "./pages/Menu";
+import Layout from "./components/Layout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const proRouter = createBrowserRouter([
   {
-    path: "/",
-    element: <HomePage />,
-  },
-  {
-    path: "/About",
-    element: <AboutPage />,
-  },
-  {
-    path: "/Blog",
-    element: <BlogPage />,
-  },
-  {
-    path: "/Contact",
-    element: <ContactPage />,
-  },
-  {
-    path: "/Menu",
-    element: <MenuPage />,
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/About",
+        element: <AboutPage />,
+      },
+      {
+        path: "/Blog",
+        element: <BlogPage />,
+      },
+      {
+        path: "/Contact",
+        element: <ContactPage />,
+      },
+      {
+        path: "/Menu",
+        element: <MenuPage />,
+      },
+    ],
   },
 ]);
 

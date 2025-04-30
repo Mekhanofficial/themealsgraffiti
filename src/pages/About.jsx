@@ -357,7 +357,6 @@ export default function AboutPage() {
           </motion.div>
         </div>
 
-        <FooterPage />
         {/* Scroll to Top Button */}
         {showScrollToTop && (
           <button

@@ -339,7 +339,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <FooterPage />
 
       {/* Scroll to Top Button */}
       {showScrollToTop && (

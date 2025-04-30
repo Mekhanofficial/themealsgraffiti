@@ -238,7 +238,6 @@ export default function BlogPage() {
               </div>
       </section>
 
-      <FooterPage />
 
       {/* Scroll to Top Button */}
       {showScrollToTop && (

@@ -892,7 +892,6 @@ export default function MenuPage() {
                  </motion.h3>
                </motion.div>
              </motion.div>
-      <FooterPage />
 
       {/* Scroll to Top Button */}
       {showScrollToTop && (
