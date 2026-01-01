@@ -1,13 +1,12 @@
 import { Outlet } from "react-router-dom";
-import HeaderPage from "./Header";
+// import HeaderPage from "./Header";
 import FooterPage from "./Footer";
-import ScrollToTop from "./ScrollToTop";
+import ScrollToTop from "../shared/ScrollToTop";
 
 const Layout = () => {
   return (
     <>
     <ScrollToTop/>
-      {/* <HeaderPage /> */}
       <Outlet />
       <FooterPage />
     </>

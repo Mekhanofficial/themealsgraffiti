@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 
-
 /* Keyframes for Fade In and Out (for image only) */
 @keyframes fadeInOutImage {
   0% {
@@ -129,11 +128,109 @@
   }
 }
 
+/* Custom Scrollbar Styles - Orange & Black Theme */
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
 
+::-webkit-scrollbar-track {
+  background: #000000; /* Black background */
+  border-radius: 10px;
+}
 
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #f97316, #fbbf24, #f97316); /* Orange gradient */
+  border-radius: 10px;
+  border: 2px solid #000000;
+  transition: all 0.3s ease;
+}
 
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #ea580c, #f59e0b, #ea580c); /* Darker orange on hover */
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+}
 
+::-webkit-scrollbar-corner {
+  background: #000000;
+}
 
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #f97316 #000000; /* Orange thumb on black track */
+}
 
+/* Optional: Add custom scrollbar for specific containers */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #f97316 #000000;
+}
 
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
 
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #f97316, #fbbf24);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #ea580c, #f59e0b);
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #f97316 #000000;
+}
+
+/* Hide scrollbar when not needed */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Optional: Add a glow effect to the scrollbar */
+@keyframes scrollbarGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(249, 115, 22, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(249, 115, 22, 0.7);
+  }
+}
+
+.scrollbar-glow::-webkit-scrollbar-thumb {
+  animation: scrollbarGlow 2s ease-in-out infinite;
+}
+
+/* For modal/overlay scrollbars with different styling */
+.modal-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(249, 115, 22, 0.5);
+  border-radius: 3px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(249, 115, 22, 0.8);
+}

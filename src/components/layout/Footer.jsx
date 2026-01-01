@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import fx21 from "../pictures/fx21.jpg";
-import logoskin from "../pictures/logoskin.png";
-import { faSpoon } from "@fortawesome/free-solid-svg-icons";
+import fx21 from "../../pictures/fx21.jpg";
+import logoskin from "../../pictures/logoskin.png";
 import {
   faInstagram,
   faPinterest,

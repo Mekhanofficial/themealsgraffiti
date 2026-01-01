@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom"; // Import useLocation
-import gbg2 from "../pictures/headbg.jpg";
-import logoskin from "../pictures/logoskin.png";
+import gbg2 from "../../pictures/headbg.jpg";
+import logoskin from "../../pictures/logoskin.png";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -27,7 +27,7 @@ export default function HeaderPage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSidebarDropdownOpen, setIsSidebarDropdownOpen] = useState(false);
-  const location = useLocation(); // Get the current location
+  const location = useLocation(); 
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -45,7 +45,6 @@ export default function HeaderPage() {
     setIsMobileMenuOpen(false);
   };
 
-  // Function to check if a link is active
   const isActive = (path) => {
     return location.pathname === path ? "text-orange-500" : "text-white";
   };
@@ -138,7 +137,7 @@ export default function HeaderPage() {
             {/* Wrap the logo and text with a Link to make it clickable */}
             <Link to="/" className="flex items-center">
               <img className="w-14 h-14" src={logoskin} alt="Logo" />
-              <h1 className="text-2xl -ml-2 font-semibold">
+              <h1 className="text-2xl -ml-2 font-semibold logo">
                 <span className="text-purple-600">Meal</span>
                 <span className="text-orange-400">sGraff</span>
                 <span className="text-yellow-400">iti</span>
